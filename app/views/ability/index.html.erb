@@ -1,0 +1,61 @@
+<div class="whole_detail_div">
+
+	<div>
+			<ul class ="nav nav-tabs">
+				<%if check_admin%>
+					<li><a href="/admin/dashboard"> DashBoard </a></li>
+				<%end%>
+				<li><a href="/users/profile"> Profile </a></li>
+				<%if have_permissions(1)%>
+					<li><a href="/admin/functional_admin">Functional Admins </a></li>
+				<%end%>	
+				<%if have_permissions(2)%>
+					<li class="active"><a href="/admin/users/user_group">User Groups</a>  </li>
+				<%end%>
+				<%if have_permissions(3)%>	
+					<li><a href="/admin/invitations">Invitations</a>  </li>	
+				<%end%>
+				<%if have_permissions(4)%>	
+					<li><a href="/admin/investment">Investments</a>  </li>
+				<% end %>
+				<%if have_permissions(5)%>	
+					<li><a href="/admin/cms/faq">FAQ</a>  </li>
+				<% end %>	
+				<%if have_permissions(6)%>	
+					<li><a href="/content">Content management</a>  </li>
+				<% end %>	
+			</ul>
+		</div>	
+		<div>
+			</ul>
+			<ul class="nav nav-tabs">
+				<li style="width:120px; text-align:center;">
+					<a href="/admin/users/user_group">List</a>
+				</li>
+				<li class="active" >
+					<a href="/admin/users/ability" >Roles</a>
+				</li>
+			</ul>
+			<div class="index_contents">
+				<div class="span10 well">
+						<% @ability.each do |ability| %> 
+							<div class="functional_admin_index_row">
+								<%= ability.name%>
+								<div class="functional_admin_links">
+									<%= link_to 'Edit ' , admin_users_ability_edit_path(:id => ability.id)%>/
+									<%if ability.status%>
+										<%= link_to ' Delete' , admin_users_ability_delete_path(:id => ability.id)%>
+									<%else%>
+										<%= link_to ' Undelete' , admin_users_ability_undelete_path(:id => ability.id)%>	
+									<%end%>
+								</div>	
+							</div>
+							<br>
+						<%end %>	
+						<br><br>					
+						<%= button_to "new" , admin_users_ability_new_path %>
+				</div>
+			</div>
+		</div>
+	</div>			
+</div>							

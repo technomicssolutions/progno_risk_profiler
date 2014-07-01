@@ -1,0 +1,7 @@
+<h3> Adding category</h3>
+
+
+<% @action = 'create'%>
+<%= render 'form', :locals => {:action=>@action} %>
+
+<%= link_to 'back' , admin_cms_faq_category_path %>

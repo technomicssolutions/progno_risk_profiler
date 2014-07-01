@@ -1,0 +1,63 @@
+<div class = "whole_detail_div">
+<div>
+		<ul class ="nav nav-tabs">
+			<li ><a href="/users/home "> DashBoard </a></li>
+			<li><a href="/users/invite">Invite Friends </a></li>
+			<li><a href="/users/points"> Points </a> </li> 
+			<li class="active" ><a href="/users/profile">Profile</a>  </li>
+		</ul>
+	</div>	
+<% @action ="update" %>
+<div class="well">
+	<ul class="nav nav-tabs">
+		<li class="active"><a href="#tab1" data-toggle="tab">personal</a></li>
+		<li><a href="#tab2" data-toggle="tab">Professional</a></li>
+	</ul>
+	<div class="tab-content">
+		<div class="tab-pane active" id ="tab1" >
+				<%= form_for @user_details , :url => {:action => @action},:html => { :multipart => true } do |f| %>
+				<%= f.hidden_field :id %>
+ 					<div>
+ 						<%= f.file_field :image %>	
+ 					</div>	
+ 					<div>
+						<%= f.label :first_name, "First Name" %>
+						<%= f.text_field :first_name %>
+					</div>
+					<div>
+						<%= f.label :second_name, "Second Name" %>
+						<%= f.text_field :second_name %>
+					</div>
+					<div>
+						<%= f.label :date_of_birth, "Date Of Birth" %>
+						<%= f.date_select :date_of_birth , :start_year =>1950 %>
+					</div>
+					<div>
+						<%= f.label :address ,"Address" %>
+						<%= f.text_area :address,:size => "15x8" %> 
+					</div>
+
+					<%= f.submit%>
+				<%end%>
+		</div>
+	<div class="tab-pane fade" id = "tab2">
+			<%= form_for @user_details , :url => {:action => @action} do |f| %>
+			<%= f.hidden_field :id %>
+			<div >
+				<%= f.label :company_name, "Company Name" %>
+				<%= f.text_field :company_name %>
+			</div>
+
+			<div>
+				<%= f.label :company_address, "Comapny Addrress" %>
+				<%= f.text_field :second_name %>
+			</div>
+
+			<div>
+				<%= f.label :designation, "designation" %>
+				<%= f.text_field :designation %>
+			</div>
+			<%= f.submit%>
+			<%end%>
+	</div>
+</div>

@@ -1,0 +1,27 @@
+<style>
+ul
+{
+list-style:square url("sqyellow.gif");
+} 
+</style>
+
+
+<div class = "whole_faq_div">
+	<% @frequently_asked_questions.each do |f| %>
+		<div class = "faq_question_field" >
+			<ul>
+				<li><b> <%= f.question%> </b></li>	
+			</ul>
+		</div>
+
+
+		<div class = "faq_answer_field">
+			<ul>
+ 			<%= f.answers %>
+ 			</ul>
+		</div>
+
+
+	<% end -%> 
+<h6><%= link_to "Back To Home" , faq_path %><h6>
+</div>

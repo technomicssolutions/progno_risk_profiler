@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<title>Progno Risk Profiler</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet" media="screen" />
+	<link href="css/style.css" rel="stylesheet" media="screen" />
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+  </head>
+    <body>
+
+	<div class="navbar header">
+	    <div class="navbar-inner">
+		<div class="container">
+		    <a class="brand" href="#">Progno Risk Profiler</a>
+		    <!--
+			Navbar floats to right
+			For normal links
+		    -->
+		    <!--
+		    <ul class="nav">
+			<li class="active"><a href="#">Link</a></li>
+			<li><a href="#">Link</a></li>
+			<li><a href="#">Link</a></li>
+		    </ul>
+		    -->
+		    <!--
+			Navbar floats to right
+			For Login/Logout links
+		    -->
+		    <!--
+		    <ul class="nav pull-right">
+			<li><a href="#">Logout</a></li>
+		    </ul>
+		    -->
+		</div>
+	    </div>
+	</div>
+	<div class="container">
+	    <div class="row">
+		<div class="span7">
+		</div>
+		<div class="span5 login">
+		    <%= form_for("user", :url => user_session_path) do |f| %>
+			<legend>Log In</legend>
+			<div class="control-group">
+
+			    <label class="control-label" for="inputUsername">Username</label>
+			    <div class="controls">
+			    	<%= f.text_field :email, :id=>"inputUsername", :placeholder=>"Username" %>
+			    </div>
+			</div>
+			<div class="control-group">
+			    <label class="control-label" for="inputPassword">Password</label>
+			    <div class="controls">
+			    	<%= f.password_field :password ,:id=>"inputPassword", placeholder:"Password"%>
+			    </div>
+			</div>
+
+			<div class="control-group">
+			    <div class="controls">
+			    	<%= f.submit "Sign in", :class=>"btn btn-success"%>
+				<a class="btn btn-info" href="/users/password/new">Forgot Password</a>
+			    </div>
+			</div>
+			<% end %>
+
+
+		</div>
+	    </div>
+	</div>
+	<div class="footer">
+	    <div>
+		<div class="container">
+		    <ul class="nav pull-right">
+
+		    </ul>
+		</div>
+	    </div>
+	</div>
+    </body>
+</html>

@@ -1,0 +1,29 @@
+<div class="whole_detail_div">
+
+<div>
+	<ul class ="nav nav-tabs">
+		<li ><a href="/users/home "> DashBoard </a></li>
+		<li class="active"><a href="/users/invite">Invite Friends </a></li>
+		<li><a href="/users/points"> Points </a> </li> 
+		<li ><a href="/users/profile">Profile</a>  </li>
+	</ul>
+</div>	
+
+
+
+<%= link_to 'new invitation ' , users_invite_new_path%>
+<br>
+<%= form_for :user, :url => create_invitation_invitations_path(@user) do |f| %>
+
+<h2><%= t "devise.invitations.new.header" %></h2>
+
+<% resource.class.invite_key_fields.each do |field| -%>
+  <p><%= f.label field %><br />
+  <%= f.text_field field %></p>
+<% end -%>
+
+  <p><%= f.submit t("devise.invitations.new.submit_button") %></p>
+<% end %>
+
+
+</div>

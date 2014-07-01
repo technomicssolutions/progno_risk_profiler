@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  risk_question_id: 
+  option_name: MyString
+  option_score: 1
+  option_comment: MyText
+
+two:
+  risk_question_id: 
+  option_name: MyString
+  option_score: 1
+  option_comment: MyText

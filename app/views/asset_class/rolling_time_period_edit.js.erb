@@ -1,0 +1,8 @@
+<% @action = "rolling_time_period_update" %>
+$('#rolling_time_period').html("<%=j render 'rolling_period_form', :locals => { :action => @action }%>");
+$('#rolling_time_period').show();
+$('#rolling_time_period').dialog({
+			title: "Add New Rolling Period",
+      height: 400,
+      width: 900      
+    });

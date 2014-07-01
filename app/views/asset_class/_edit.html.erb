@@ -1,0 +1,31 @@
+<div class="asset_class_form">
+  <%= form_for @asset_class, url:{action:'update',controller:'asset_class'}, method:'POST' do |f| -%>
+	 <div id="asset_class_form_labels"> 
+    <%= f.hidden_field :id %>
+    <div class="asset_class_form_labels">
+      <li>
+       <%= f.label :main_asset_class, "Main Asset Class" %>
+      </li>
+      <li>
+        <%= f.label :sub_asset_class, "Sub Asset Class" %>
+      </li>
+      <li>
+        <%= f.label :benchmark, "Benchmark" %>
+      </li>
+    </div>
+    
+    <div id="asset_class_form_fields">
+      <li>
+        <%= f.text_field :main_asset_class, :clas=>"span12" %>
+      </li>
+      <li>
+        <%= f.text_field :sub_asset_class %>
+      </li>
+      <li>
+        <%= f.text_field :benchmark %>
+      </li>
+    </div>
+
+      <%= f.submit "Update", :disable_with => 'Saving...' %>
+  <% end -%>
+</div>

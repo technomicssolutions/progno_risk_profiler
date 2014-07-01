@@ -1,0 +1,58 @@
+
+<div>
+<ul class="nav nav-tabs">
+  <li class="active"><a href="/admin/risk_profile/set_questions" >Set Questions</a></li>
+  <li><a href="/admin/risk_profile/sequence_change" >Sequence Change</a></li>
+  <li><a href="/admin/risk_profile/view_questionaire" >View Questionaire</a></li>
+</ul>
+</div>
+
+<div id="ajax-popup-new-question"> <!-- div for adding new questions -->
+</div>
+
+ <%= add_question %>
+<div class="content_div">
+<!-- start content div-->
+<!--div class="content"-->
+ 
+  <div class = "question_fields">
+    <table class="table table-striped table-condensed table-hover">
+    
+      <% @risk_questions.each_with_index do |risk_questions,question_number| %>
+        <thead>
+          <tr>
+            <th>
+              <%= format_question(risk_questions.risk_question,question_number).html_safe %>
+            </th>
+            <th>
+              <%= edit_question(risk_questions.id) %> | <%= delete_question(risk_questions.id) %> | <%= add_option(risk_questions.id) %>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Answers</th>
+            <th>Scores</th>
+            <th>Comments</th>
+            <th>Actions</th>
+          </tr>
+          <% risk_questions.risk_question_options.sort.each_with_index do |options,option_number| %>
+            <tr>
+              <td>
+                <%= option_number(question_number,option_number) %> : <%= options.option_name %>
+              </td>
+              <td>
+                <%= options.option_score %>
+              </td>
+              <td>
+                <%= options.option_comment.html_safe %>
+              </td>
+              <td>
+                <%= edit_option(options.id) %>| <%= delete_option(options.id) %> 
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      <% end %>
+    </table>
+  </div>

@@ -1,0 +1,30 @@
+<ul class="nav nav-tabs">
+  <li><a href="/admin/investment/asset_class/" >Set Asset Class</a></li>
+  <li><a href="/admin/investment/asset_class/set_time_periods" >Set Time Periods</a></li>
+  <li class="active"><a href="/admin/investment/asset_class/view_matrics" >View Matrics</a></li>
+</ul>
+
+<div id="asset_class_view_matrics">
+	<table class="table table-striped table-condensed table-hover">
+		<thead>
+			<tr>
+				<th> Rolling Period Added</th>
+				<th>Data Unit</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @rolling_time_period.each do |time_period| %>
+				<tr>
+					<td><%= time_period.rolling_period_added %></td>
+					<td><%= time_period.data_unit %></td>
+					<td><%= select_rolling_period(time_period) %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>
+
+<div id="view_matrics_stats">
+	
+</div>

@@ -1,0 +1,22 @@
+  <% (0..@raw_data_count-1).each do |iteration| %>
+  <% asset_class_name = AssetClass.find(@asset_raw_datas[iteration].first.asset_class_id).main_asset_class %>
+    <Table>
+<tr>
+<th> Date</th>        
+<th>Asset Data</th>
+<th>Rolling Data</th>
+</tr>
+
+      <% @asset_raw_datas[iteration].to_a.each_with_index do |iteration2,index| %>
+<tr>
+<td><%= iteration2.date.to_time.strftime("%FT%T.%L") %></td>
+<td><%= iteration2.data %></td>
+ <% rolling_data = @data[iteration].at(index) %>
+          <% if index >= @temp_period then %>
+<td><%= rolling_data.data.to_f if rolling_data.data %></td>
+          <% end %>
+</tr>
+        <% end %>
+    </Table>
+    <% iteration += 1 %>
+  <% end %>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  asset_class_item_one_id: 9.99
+  asset_class_item_two_id: 9.99
+  corelations: 9.99
+  rolling_period_id: 1
+
+two:
+  asset_class_item_one_id: 9.99
+  asset_class_item_two_id: 9.99
+  corelations: 9.99
+  rolling_period_id: 1

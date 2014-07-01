@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  question: MyText
+<<<<<<< HEAD
+  image_id: 1
+=======
+>>>>>>> UI-demo
+  status: false
+
+two:
+  question: MyText
+<<<<<<< HEAD
+  image_id: 1
+=======
+>>>>>>> UI-demo
+  status: false

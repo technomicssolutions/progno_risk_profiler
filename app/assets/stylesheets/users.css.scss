@@ -1,0 +1,47 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#user_profiles {
+	list-style-type: none;
+}
+
+.resend_invitation_mails{
+	list-style-type: none;
+	margin-left: 60px;
+}
+
+#import_form{
+	float: left;
+	width: 50%;
+}
+
+#import_gmail{
+	float: right;
+	width: 50%;
+	padding-top: 40px;
+}
+
+#sync_profiles{
+	float: right;
+}
+
+#sync_profiles li {
+	list-style: none;
+	float: left;
+	width: 30%;
+}
+
+#sync_google {
+
+}
+
+#sync_facebook {
+	margin-left: 3px;
+	margin-right: 20px;
+}
+
+#sync_linked_in {
+	//margin-left: 2px;
+	margin-right: 3px;
+}

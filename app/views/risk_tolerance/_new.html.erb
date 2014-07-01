@@ -1,0 +1,14 @@
+<%= form_for @risk_tolerance_level, url: {action:'create'} do |f| -%>
+  
+  <li id="rta_form_label"><%= f.label :from_level, "From" %></li>
+  <li id="rta_form_label"><%= f.label :to_level, "To" %></li>
+  <li id="rta_form_label"><%= f.label :level, "Level" %></li>
+
+  <li id="rta_form_field"><%= f.text_field :from_value %></li>
+  <li id="rta_form_field"><%= f.text_field :to_value %></li>
+  <li id="rta_form_field"><%= f.text_field :level %></li>
+
+  <div class="submit">
+  	<%= f.submit "Save", :disable_with => 'Saving...' %>
+  </div>
+<% end -%>

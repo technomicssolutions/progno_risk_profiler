@@ -1,0 +1,105 @@
+<ul class="nav nav-tabs">
+  <li><a href="/admin/investment/portfolio_group/" >Set Asset Allocation</a></li>
+  <li  class="active"><a href="/admin/investment/portfolio_group/efficient_frontier" >Efficient Frontier</a></li>
+  <li><a href="/admin/investment/portfolio_group/periodic_risk" >Periodic Risk</a></li>
+  <li><a href="/admin/investment/portfolio_group/portfolios" >Status</a></li>
+</ul>
+<div style="float:left" >
+<div id ="search">
+<table >
+	<tr>
+		<%= form_tag(url: {action: "efficient_frontier", controller:'portfolio_group'}) do %>
+
+ 			<td>Asset Allocation Strategy</td>
+      <td> <%= select_tag "id", options_for_select(PortfolioGroup.all.collect {|r| [r.name, r.id] }) %></td>
+  		<td><%= submit_tag "Search", :disable_with => 'Searching...' %></td>
+		<% end %>
+		</tr>
+	</table>
+
+
+<div>
+	<br><br>
+<% if !@portfolio_group.nil? then %>
+<table>
+	<tr><td><b><%= @portfolio_group.name %></b></td>
+			<td colspan="3">&nbsp;</td>
+	<tr>
+	<tr><td colspan="4">&nbsp;</td></tr>
+	<tr>
+		<td>Time Horizion </td>
+		<td><%= @portfolio_group.time_horizon %></td>
+		<td>Rolling Time Period</td>
+		<td><%=@portfolio_group.rolling_time_period.rolling_period_added %></td>
+	</tr>
+	<tr>
+		<td>Weight Change </td>
+		<td><%= @portfolio_group.weight_change %></td>
+		<td>Risk Free</td>
+		<td><%= @portfolio_group.risk_free %></td>
+	</tr>
+</table>
+<br><br>
+<table>
+			<tr>
+				<td colspan="3">Asset Class Constraints</td>
+			</tr>
+			<tr border ="1">
+				<th>Asset Class</th>
+				<th>Minimum Weight</th>
+				<th>Maximum Weight</th>
+			</tr>
+			<% @portfolio_group.portfolio_group_assets.each do |asset| %>
+  		  <tr>
+					<td><%= asset.name %></td>
+					<td><%= asset.minimum%></td>
+					<td><%= asset.maximum %></td>
+				</tr>
+  		<% end %>
+</table>
+</div>
+<style>
+
+#my_id{
+	height:450px;
+	width:650px;
+}
+
+</style>
+<br><br>
+<%= high_chart("my_id", @h) %>
+</div>
+<br>
+
+<div style="float:right" >
+<table cellpadding="0" cellspacing="0" border="1px" class="table table-striped table-bordered" id="example" width="900px;">
+	<thead>
+<tr>
+<th width="150px">Asset Allocation Id</th>
+<th width="75px">Risk</th>
+<th width="75px">Return</th>
+<th width="75px">Sharpe Ratio</th>
+<% @portfolio_group.portfolio_group_assets.each do |asset| %>
+	<th width="75px"><%= asset.name %></th>
+<% end %>
+</tr>
+</thead>
+<tbody>
+<% @dataset_object.each do |dataset| %>
+
+<tr>
+	<td><%= dataset.id %></td>
+	<td><%= dataset.risk %></td>
+	<td><%= dataset.return %></td>
+	<td><%= dataset.sharpe_ratio %></td>
+	<% dataset.composition.split(':').each do |val| %>
+		<td> <%= val %></td>
+	<% end %>
+</tr>
+<% end %>
+</tbody>
+</table>
+</div>
+
+<% end %>
+</div>

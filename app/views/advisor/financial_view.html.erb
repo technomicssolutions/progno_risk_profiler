@@ -1,0 +1,25 @@
+<div>
+	<% if @response.blank? %>
+	<!-- if questions are not answered -->
+		<div id="advisor_financial_questions">
+			<%= button_to "Answer Questions", advisor_financial_edit_path, remote:true, method:'get', class:'btn btn-success' %>
+		</div>
+	<% else%>
+		<!-- show the answers submitted for the user -->
+		<div id="advisor_financial_questions">
+			<table class="table table-striped table-bordered">
+				<% @response.each do |question| %>
+				<thead>
+					<th>Question</th>
+					<th>Answer</th>
+				</thead>
+				<tbody>
+					<td> <%= question[0][0].question %> </td>
+					<td> <%= question[1]%> </td>
+				</tbody>
+				<% end %>
+			</table>
+		<%= button_to "Re-Submit", advisor_financial_edit_path, remote:true, method:'get', class:'btn btn-success' %>
+	<% end %>
+	</div>
+</div>

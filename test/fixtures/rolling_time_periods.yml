@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  asset_class_id: 1
+  rolling_period_added: 1
+  data_unit: MyString
+  return_units_no: 1
+  start_date: 2013-02-12
+  end_date: 2013-02-12
+
+two:
+  asset_class_id: 1
+  rolling_period_added: 1
+  data_unit: MyString
+  return_units_no: 1
+  start_date: 2013-02-12
+  end_date: 2013-02-12

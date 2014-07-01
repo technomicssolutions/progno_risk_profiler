@@ -1,0 +1,52 @@
+
+<script src="jquery.timeago.js" type="text/javascript"></script>
+<script src="jquery.js" type="text/javascript"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script src="path/application.js" type="text/javascript"></script>
+
+
+
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+	jQuery("abbr.timeago").timeago();
+jQuery.timeago.settings.allowFuture = true;
+  
+});
+</script>
+
+
+<div class="well" >
+	<ul class ="nav nav-tabs">
+		<%if check_admin%>
+				<li ><a href="/admin/dashboard"> DashBoard </a></li>
+			<%else%>	
+				<li ><a href="/users/home "> DashBoard </a></li>
+			<%end%>
+		<li  class="active"><a href="/users/invite">Invitation </a></li>
+		<li><a href="/users/profile">Profile</a>  </li>
+	</ul>
+
+	<div class = "table_div">
+		<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example" width="900px;">
+			<thead>
+			<tr>
+        <th style="width: 33%"><h6><%= @status %></h6></th>
+        <th style="width: 33%"><h6>user name</h6></th> 
+        <th style="width: 33%"><h6>Time</h6></th>
+      </tr>
+      </thead>
+      <tbody>
+	 		<% @details.each do |detail| %>
+	 			<tr>
+	        <td><%= detail[0] %></td>
+	        <td><%= detail[1] %></td>
+	       <td><%= timeago(detail[2])%></td>
+	      
+	    	</tr>
+	    <%end%>
+	    </tbody>
+	    
+	  </table>
+	  <%= button_to "back", users_invitation_status_path%>
+	</div>	
+</div>

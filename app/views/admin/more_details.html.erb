@@ -1,0 +1,54 @@
+<div class="whole_detail_div">
+
+	<div>
+			<ul class ="nav nav-tabs">
+				<%if check_admin%>
+					<li><a href="/admin/dashboard"> DashBoard </a></li>
+				<%end%>
+				<li><a href="/users/profile"> Profile </a></li>
+				<%if have_permissions(1)%>
+					<li class="active"><a href="/admin/functional_admin">Functional Admins </a></li>
+				<%end%>		
+				<%if have_permissions(2)%>
+					<li><a href="/admin/users/user_group">User Groups</a>  </li>
+				<%end%>			
+				<%if have_permissions(3)%>	
+					<li><a href="/admin/invitations">Invitations</a>  </li>	
+				<%end%>
+				<%if have_permissions(4)%>	
+					<li><a href="/admin/investment">Investments</a>  </li>
+				<% end %>
+				<%if have_permissions(5)%>	
+					<li><a href="/admin/cms/faq">FAQ</a>  </li>
+				<% end %>	
+				<%if have_permissions(6)%>	
+					<li><a href="/content">Content management</a>  </li>
+				<% end %>	
+			</ul>
+		</div>	
+		<div>
+
+			<ul class="nav nav-tabs">
+				<li class="active" style="width:120px; text-align:center;">
+					<a href="/admin/functional_admin">List</a>
+				</li>
+				<li>
+					<a href="/admin/functional_admins_new" >Add an admin</a>
+				</li>
+			</ul>
+			<div class="index_contents">
+				<div class="span10 well">
+					<h6>Abilities assigned to <%=@admin.email%></h6>
+					<br>
+					<%@abilities.each do |ability|%>
+						<%=ability%>
+						<br>
+					<%end%>
+					<div style="float:right"> <%=button_to "Back", admin_functional_admin_path%></div>
+				</div>
+			</div>	
+		</div>	
+	</div>
+</div>		     
+
+	

@@ -1,0 +1,30 @@
+<div class="asset_class_form">
+  <%= form_for @asset_class, url:{action:'create',controller:'asset_class'}, method:'POST' do |f| -%>
+    
+    <div class="asset_class_form_labels">
+      <li id="asset_class_label">
+    	 <%= f.label :main_asset_class, "Main Asset Class" %>
+      </li>
+      <li id="asset_class_label">
+        <%= f.label :sub_asset_class, "Sub Asset Class" %>
+      </li>
+      <li id="asset_class_label">
+        <%= f.label :benchmark, "Benchmark" %>
+      </li>
+    </div>
+    
+    <div class="asset_class_form_fields">
+      <li id="asset_class_field">
+        <%= f.text_field :main_asset_class, :clas=>"span12" %>
+      </li>
+      <li id="asset_class_field">
+        <%= f.text_field :sub_asset_class %>
+      </li>
+      <li id="asset_class_field">
+        <%= f.text_field :benchmark %>
+      </li>
+    </div>
+
+      <%= f.submit "Submit", :disable_with => 'Submiting...' %>
+  <% end -%>
+</div>

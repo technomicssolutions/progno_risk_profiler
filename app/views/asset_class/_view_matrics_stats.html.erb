@@ -1,0 +1,50 @@
+<div id="asset_class_mean_standard_deviation">
+		<table class="table table-striped table-condensed table-hover">
+			<caption>Mean and Standard Deviation</caption>
+			<thead>
+				<tr>
+					<th>Asset Class</th>
+					<th>Mean</th>
+					<th>Standard Deviation</th>
+				</tr>
+			</thead>
+			<tbody>
+					<% @rolling_stats.each do |stats| %>
+					<tr>
+						<td><%= asset_class_name(stats.asset_class_id) %></td>
+						<td><%= number_with_precision(stats.mean, :precision => 4) %></td>
+						<td><%= number_with_precision(stats.standard_deviation, :precision => 4)  %></td>
+					</tr>
+					<% end %>
+			</tbody>
+		</table>
+	</div>
+	<div id="asset_class_correlation_matrics">
+		<table class="table table-striped table-condensed table-hover asset_class_correlation_matrics">
+			<caption>Correlation Matrics</caption>
+			<thead>
+				<tr>
+					<th></th>
+					<% @asset_class_names.each do |names| %>
+						<th><%= names %></th>
+					<% end %>
+				</tr>
+					<% (0..@count-1).each do |i| %>
+						<tr>
+							<th><%= @asset_class_names[i] %></th>
+							<% (0..@count-1).each do |j| %>
+								<% correlation = find_correllation(@rolling_corelation,i,j) %>
+								<% correlation.each do |x| %>
+									<td>
+										<%= number_with_precision(x.corelations, :precision => 4) %>
+									</td>
+								<% end %>
+							<% end %>
+						</tr>
+						<% end %>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+	</div>
+</div>

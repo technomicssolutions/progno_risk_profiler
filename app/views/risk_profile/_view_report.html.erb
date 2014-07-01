@@ -1,0 +1,20 @@
+
+  <div class="risk_profile_reports_stats">
+	  <li id="risk_profile_reports_stats">Total Questions</li>
+	  <li id="risk_profile_reports_stats"><%= @total_questions_count %></li>
+	  <li id="risk_profile_reports_stats">Maximum Score</li>
+		<li id="risk_profile_reports_stats"><%= @max_score %></li>
+  </div>
+
+  <div class="risk_profile_report_comments">
+  	<b>Dear Admin,</b>
+
+	  <%= @risk_profile.name unless @risk_profile.blank? %>
+	  <% unless @total.nil? %>
+	  <ul>
+	  <% @total.each do |comments| %>
+	    <li> <%= comments.html_safe %></li>
+	  <% end %>
+	  </ul>
+	  <% end %>
+  </div>

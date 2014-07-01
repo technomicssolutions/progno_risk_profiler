@@ -1,0 +1,100 @@
+// Place all the styles related to the financial_profile controller here.
+// Place all the styles related to the financialprofile controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.measure_headings {
+
+}
+
+#measure_comment {
+	float: left;
+	width: 60%;
+}
+
+.measure_headings{
+	padding-bottom: 30px;
+}
+
+.measure_headings li{
+	list-style-type: none;
+	float: left;
+	width: 10%;
+	font-weight: bold;
+}
+
+.measure_label li{
+	list-style-type: none;
+	float: left;
+	width: 10%;
+}
+
+.trial_question {
+	float: left;
+	width: 50%;
+}
+
+.trial_value {
+	float: right;
+	width: 50%;
+}
+
+.trial_questionaire{
+	float: left;
+	width: 50%;
+}
+
+#trial_questionaire_results {
+	float: right;
+	width: 50%;
+	//padding-right: 5%;
+}
+
+#reports_stats_label {
+	float: left;
+	width: 21%;
+	list-style: none;
+	font-weight: bold;
+	border: 1px solid black;
+}
+
+#reports_stats_value {
+	float: left;
+	width: 9%;
+	list-style: none;
+	font-weight: bold;
+	border: 1px solid black;
+}
+
+.reports_comments {
+	padding-top: 5%;
+}
+
+#reports_comments_heading {
+	list-style: none;
+	font-weight: bold;
+}
+
+#trial_question_field{
+	float: left;
+	list-style-type: none;
+	width: 50%;
+}
+
+#trial_question_value {
+	float: left;
+	list-style-type: none;
+	width: 50%;
+}
+
+#reports_final_comments{
+	margin-top: 2%;
+}
+
+#finance_profile_question_values {
+	list-style: none;
+	display: inline;
+	float: left;
+	width: 33%;
+
+}

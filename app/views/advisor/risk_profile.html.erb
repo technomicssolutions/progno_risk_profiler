@@ -1,0 +1,34 @@
+<%= wicked_pdf_stylesheet_link_tag "application"%>
+<style>
+@media screen
+{
+  .export
+    {
+      display:none;
+    }
+
+}
+</style>
+<div id="print_header_image">
+   <%= wicked_pdf_image_tag 'header.png' %>
+</div>
+<div id="screen_header_image">
+  <%= image_tag('header.png') %>
+</div>
+<table class="table table-striped table-condensed table-hover">
+<%= render 'behavior_profile' %>
+<%= render 'financial_profile' %>
+</table>
+
+<div id="print_footer_image">
+   <%= wicked_pdf_image_tag 'footer.png' %>
+</div>
+<div id="screen_footer_image">
+  <%= image_tag('footer.png') %>
+</div>
+
+<div class="export">
+  <%= link_to "Download pdf", "/advisor/risk_profile/#{@client.user_detail.full_name}", :format => 'pdf', class:'btn btn-success' %>
+  <br><br>
+  <%= link_to "Download excel file", "/advisor/risk_profile.xls", :format => 'xls', class:'btn btn-success' %>
+</div>

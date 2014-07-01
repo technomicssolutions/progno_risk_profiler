@@ -1,0 +1,46 @@
+<div class = "whole_faq_div">
+	<body>
+		<div>
+			<ul class ="nav nav-tabs">
+				<li><a href="/admin/cms/faq">FAQ Home</a></li>
+				<li><a href="/admin/cms/faq/new">Add Question </a></li>
+				<li ><a href="/admin/cms/faq/unpublish"> Unpublished Questions </a> </li> 
+				<li class = "active"><a href="/admin/cms/faq/category"> Category List</a>  </li>
+			</ul>
+		</div>
+		<style type="text/css">
+			table.bottomBorder{border-collapse: collapse;}
+			table.bottomBorder td,table.bottomBorder th{border-bottom: 1px solid #D8D8D8;padding: 2px;}
+		</style>
+	<%= add_faq_category %>
+	<div class = "faq_table">
+		<table class = "bottomBorder" width ="50%" margin-left ="10px" padding ="10px">
+			<tr>
+				<th align ="left"><h5> Name </h5></th>
+				<th align ="center"><h5> image icon </h5></th>
+				<th align ="right"> <h5>Action </h5></th>
+			</tr>
+		<br>
+		<br>
+
+		<% @question_categories.each do |category| %>
+			<tr class = "<%= cycle('evenrow','oddrow')%>">
+				<td align ="left"><%= category.name %></td>
+				<td align ="center"><% if category.image? %> 
+					<%= image_tag(category.image.url ,:size => "48x48")%>
+					<br>
+					<% link_to category.image.url , category.image.url%>
+					<%end%>
+				</td>
+				<td align = "right"><%=edit_faq_category(category)%> | <%=delete_faq_category(category)%></td>
+			</tr>
+		<%end%>	
+		</table>
+</div>
+
+
+<br>
+</body>
+</div>
+
+

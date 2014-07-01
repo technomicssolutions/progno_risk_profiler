@@ -1,0 +1,56 @@
+// Place all the styles related to the RiskTolerance controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.rta_levels{
+	border: 1px solid black;
+	margin-top: 3%;
+}
+
+.rta_levels li {
+	list-style-type: none;
+	float: left;
+	width: 25%;
+}
+
+#rta_form_label {
+	list-style-type: none;
+	float: left;
+	width: 33%;	
+}
+
+#rta_form_field {
+	list-style-type: none;
+	float: left;
+	width: 33%;		
+}
+
+.rta_levels_heading {
+	margin-bottom: 3%;
+	font-weight: bold;
+}
+
+.rta_levels_values {
+	border: 1px solid black;
+}
+
+#rta_reports_stats_label {
+	float: left;
+	list-style-type: none;
+	width: 20%;
+}
+
+#rta_reports_stats_value{
+	float: left;
+	width: 20%;
+	list-style-type: none;
+}
+
+#stats{
+	
+}
+
+#risk_profile_trial_questionaire_results{
+	border: 1px solid black;
+	width: 38%;
+}

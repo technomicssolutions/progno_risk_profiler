@@ -1,0 +1,141 @@
+// Place all the styles related to the asset_class controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.asset_class_form{
+	margin-right: 500px;
+  margin-bottom: 3%;
+}
+
+#asset_class_label{
+  float: left;
+  width: 33%;
+  list-style-type: none;
+}
+
+#asset_class_field {
+  display: inline;
+  list-style-type: none;
+}
+
+#asset_class_form_fields li { 
+	float: left;
+	width: 30%;
+	list-style: none;
+	margin: 10px;
+}
+
+#asset_class_form_labels li{
+	float: left;
+	width: 30%;
+	list-style: none;
+	margin: 10px;
+}
+
+#asset-heading
+{
+	width: 25%;
+	float: left;
+	font-weight: 200;
+	background-color: #ccc;
+}
+
+#asset_class_content
+{
+	background-color: #fff;
+}
+
+#asset_content_values{
+	float: left;
+	width: 25%;
+}
+
+#asset_content_upload{
+	float: left;
+	width: 42%;
+}
+
+#asset_content_links{
+	float: right;
+	width: 58%;
+}
+
+#set_asset_class{
+	float: left;
+	width: 49%;
+	margin-right: 2px;
+	border: 1px solid black;
+}
+
+#asset_class_datas{
+	float: right;
+	width: 49%;
+	margin-left: 2px;
+	border: 1px solid black;
+}
+
+#new_asset_class{
+	float: right;
+	margin-top: 10px;
+}
+
+#main_class_name{
+	font-weight: bold;
+	float: left;
+	width: 50%;
+	background-color: #ccc;
+}
+
+#main_class_count {
+	float: right;
+	width: 50%;
+	text-align: right;
+	background-color: #ccc;
+}
+
+#asset_class_details{
+	float: left;
+	width: 33%;
+}
+
+#asset_class_date_start{
+	width: 50%;
+	float: left;
+}
+
+#asset_class_date_end{
+	width: 50%;
+	float: right;
+}
+
+#rolling_period_index {
+	margin-top: 10px;
+}
+
+#rolling_period_form_fields li {
+	list-style-type: none;
+}
+
+#rolling_period_form_fields #label {
+	float: left;
+	width: 50%;
+}
+
+#asset_class_view_matrics{
+	float: left;
+	width: 48%;
+}
+
+#view_matrics_stats{
+	float: right;
+	width: 48%;
+}
+
+#asset_class_correlation_matrics td {
+	width: 50px;
+}
+
+#asset_class_correlation_matrics th {
+	width: 50px;
+}

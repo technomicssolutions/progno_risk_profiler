@@ -1,0 +1,22 @@
+<%= tinymce_assets %>
+<%= form_for @risk_question_option, url:{action:'create_option',controller:'risk_profile'},method:'post' do |f| -%>
+
+  <%= f.label :option_name, "Option" %>
+  <%= f.text_field :option_name, :class=>"span8" %>
+  
+  <%= f.hidden_field :risk_question_id, :value => @question_id %>
+
+  <%= f.label :option_score, "Option Score" %>
+  <%= f.text_field :option_score, :class=>"span8" %>
+
+  <%= f.label :option_comment, "Option Comment" %>
+  <%= f.text_area :option_comment, size:"50x5", :class=>"span8 tinymce" %>
+
+	</div>
+
+	<div>
+		<%= f.submit "Add", :disable_with => 'Adding..' %>
+	</div>
+
+<% end -%>
+<%= tinymce %>

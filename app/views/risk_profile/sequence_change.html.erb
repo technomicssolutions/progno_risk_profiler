@@ -1,0 +1,31 @@
+<div>
+<ul class="nav nav-tabs">
+  <li><a href="/admin/risk_profile/set_questions" >Set Questions</a></li>
+  <li class="active"><a href="/admin/risk_profile/sequence_change" >Sequence Change</a></li>
+  <li><a href="/admin/risk_profile/view_questionaire" >View Questionaire</a></li>
+</ul>
+</div>
+
+<div id="ajax-popup-new-question"> <!-- div for adding new questions -->
+</div>
+
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" />
+
+<div class="content_div">
+	<div id="sequence_change">
+		<%= form_tag('/risk_profile/sort/') do %>
+ 			<ul id="sortable_list">
+  <% @risk_questions.each_with_index do |risk_questions,question_number| %>
+        <li class="ui-state-default" style ="width:650px;list-style-type: none;padding-top:2px;padding-bottom:2px">
+        			<span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
+        			<%= format_question(risk_questions.risk_question,question_number).html_safe%>
+        		
+          <%= hidden_field_tag "order[]", "#{risk_questions.id}" %>
+        </li>
+  <% end %>
+  <%= submit_tag "save", :disable_with => 'saving...' %>
+			</ul>
+			
+		<% end -%>
+	</div>
+</div>

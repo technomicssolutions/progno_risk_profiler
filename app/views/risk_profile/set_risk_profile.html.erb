@@ -1,0 +1,30 @@
+<div>
+	<ul class="nav nav-tabs">
+	  <li><a href="/admin/risk_profile/set_questions" >Set Questions</a></li>
+	  <li  class="active"><a href="/admin/risk_profile/set_risk_profile">Set Risk Profile</a></li>
+	  <li><a href="/admin/risk_profile/view_questionaire" >View Questionaire</a></li>
+	</ul>
+</div>
+
+<div class="content"> <!-- div for whole content -->
+	<% unless @current_risk_profiles.count == 0 %>
+		<div class="riskprofiles"> <!-- div for profiles -->
+			
+				<li id="heading">Profile Name</li>
+				<li id="heading">From Mark</li>
+				<li id="heading">To Mark</li>
+			
+			<% @current_risk_profiles.each do |r| %>
+			
+					<li id="fields"><%= r.risk_profile_name %></li>
+					<li id="fields"><%= r.from_mark %></li>
+					<li id="fields"><%= r.to_mark %></li>
+			
+			<% end %>
+		</div> <!-- close the div for profiles -->
+	<% end %>		
+
+	<div class="ajax-popup"> <!-- div for adding new risk profiles -->
+		<%= add_risk_profile %>
+	</div> <!-- close div for new profiles -->
+</div> <!-- close div for content -->

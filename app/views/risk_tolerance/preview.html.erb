@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Project IP</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- Le styles -->
+	
+
+	<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+		<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Le fav and touch icons -->
+
+</head>
+<body>
+<!-- staring from here -->	
+    <ul class="nav nav-tabs">
+      <li><a href="/admin/investment/risk_tolerance/" >Risk Tolerance Levels</a></li>
+      <li><a href="/admin/investment/risk_tolerance/preview" >Preview</a></li>
+    </ul>
+
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#behaviour" data-toggle="tab">Behaviour</a></li>
+      <li><a href="#financial" data-toggle="tab">Financial</a></li>
+    </ul>
+    <div id="myTabContent" class="tab-content">
+      <div class="tab-pane active in" id="behaviour">
+        <!-- form id="tab"-->
+  
+
+<div id="risk_profile_trial_questionaire_results">
+
+</div>
+
+<div class="risk_profile_trial_questionaire">
+
+  <%= form_tag({:action => 'view_report_behaviour'}, remote: true) do %>
+    <% @survey.each do |s| %>
+      <% s.risk_questions.each do |questions| %>
+        <div class="questions_trial">
+          <li id="trial_question"><%= questions.risk_question.html_safe %></li>
+          <% questions.risk_question_options.each do |options| %>
+           <% if options.option_name.nil? %>
+              <li id="trial_option"> &nbsp;</li>
+            <% else %>
+              <li id="trial_option">
+                <%= options.option_name %>
+              </li>
+            <% end %>
+           <li id="trial_option">
+            <%= radio_button_tag questions.id, options.id%>
+           </li>
+          <% end %>
+        </div> <!-- close div for questions -->
+      <% end %>
+    <% end %>
+    <%= submit_tag "Save and Continue", :disable_with => 'Submiting...' %>
+  <% end -%>
+
+</div>
+          	
+        </form>
+      </div>
+      <div class="tab-pane fade" id="financial">
+    	
+<div id="trial_questionaire_results">
+
+</div>
+
+<div class="trial_questionaire">
+  <table class="table table-striped table-condensed table-hover">
+    <%= form_tag({:action => 'view_report_finance'}, :remote => true) do  %>
+      <% @total.each do |f| %>
+        <tr>
+          <th><%= f.question.html_safe %></th>
+          <th><%= text_field_tag(:"#{f.map_variable_id}") %></th>
+        </tr>
+      <% end %>
+      <tr>
+        <th><%= submit_tag "Submit" %></th>
+      </tr>
+    <% end %>
+  </table>
+</div>
+</div>
+      </div>
+  </div>
+</div>
+</div>
+</div>
+	<!-- Le javascript
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="http://code.jquery.com/jquery.min.js"></script>
+	<script src="https://raw.github.com/twitter/bootstrap/master/js/bootstrap-transition.js"></script>
+	<script src="https://raw.github.com/twitter/bootstrap/master/js/bootstrap-alert.js"></script>
+	<script src="https://raw.github.com/twitter/bootstrap/master/js/bootstrap-modal.js"></script>
+	<script src="https://raw.github.com/twitter/bootstrap/master/js/bootstrap-dropdown.js"></script>
+	<script src="https://raw.github.com/twitter/bootstrap/master/js/bootstrap-scrollspy.js"></script>
+	<script src="https://raw.github.com/twitter/bootstrap/master/js/bootstrap-tab.js"></script>
+	<script src="https://raw.github.com/twitter/bootstrap/master/js/bootstrap-tooltip.js"></script>
+	<script src="https://raw.github.com/twitter/bootstrap/master/js/bootstrap-popover.js"></script>
+	<script src="https://raw.github.com/twitter/bootstrap/master/js/bootstrap-button.js"></script>
+	<script src="https://raw.github.com/twitter/bootstrap/master/js/bootstrap-collapse.js"></script>
+	<script src="https://raw.github.com/twitter/bootstrap/master/js/bootstrap-carousel.js"></script>
+	<script src="https://raw.github.com/twitter/bootstrap/master/js/bootstrap-typeahead.js"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+<<<<<<< HEAD
+  question_id: 1
+  option_name: MyString
+  option_score: 1
+  comments: MyText
+  status: false
+
+two:
+  question_id: 1
+  option_name: MyString
+  option_score: 1
+  comments: MyText
+  status: false
+=======
+  riskquestion_id: 1
+  option_name: MyString
+  score: 1
+
+two:
+  riskquestion_id: 1
+  option_name: MyString
+  score: 1
+>>>>>>> UI-demo

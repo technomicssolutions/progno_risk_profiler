@@ -1,0 +1,12 @@
+<%= tinymce_assets %>
+	<%= form_for @risk_question, :url=> {:action =>'create'} , :method => 'post' do |f| -%>
+		<div class = "fields">
+	  	<%= f.label :risk_question, "Question" %>
+	  	<%= f.text_area :risk_question, placeholder:'Enter question', size:"50x5", class:"span9  tinymce" %>
+	  </div>
+
+	  <div>
+	  	<%= f.submit "Submit", :disable_with => 'Submiting...' %>
+	  </div>
+	<% end -%>
+<%= tinymce %>

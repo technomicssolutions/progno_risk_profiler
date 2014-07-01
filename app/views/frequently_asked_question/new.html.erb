@@ -1,0 +1,32 @@
+<div class = "whole_faq_div">
+<div>
+<ul class ="nav nav-tabs">
+	<li><a href="/admin/cms/faq "> FAQ Home </a></li>
+	<li class = "active"><a href="/admin/cms/faq/new">Add Question </a></li>
+	<li><a href="/admin/cms/faq/unpublish"> Unpublished Questions </a> </li> 
+	<li><a href="/admin/cms/faq/category">Category List</a>  </li>
+</ul>
+</div>
+<%= form_for @frequently_asked_question, url:{action:'create',controller:'frequently_asked_question'} do |f| %>
+<div class = "frequently_asked_question_field">
+	<%= f.label :question, "Enter the Question" %>
+	<%= f.text_field :question , :class => "span4" %>
+</div>
+
+<div class = "frequently_asked_question_field">
+	<%= f.label :answers, "Answer" %>
+	<%= f.text_area :answers , :class => "span4" ,:size => "10x5"  %>
+</div>
+<div class = "frequently_asked_question_field">
+	<%= f.label :publish %> 
+	<%= f.check_box :publish %>
+</div>
+<div class = "frequently_asked_question_field">
+	<%= f.collection_select :category_id, @question_category, :id, :name %>
+</div>
+
+<div class = "faq_action" >
+<%= f.submit "Upload the question" %>
+</div>
+<%end%>
+</div>

@@ -1,0 +1,73 @@
+// Place all the styles related to the frequently_asked_question controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.faq_question_field {
+	padding : 2px ;
+	list-style: none;
+	margin-left: 5px;
+	
+}
+
+.faq_answer_field {
+	padding :2px;
+	margin-left: 5px;
+}
+ 
+
+.faq_table{
+	margin-left: 20px;
+	padding-left: 20px;
+
+}
+
+.frequently_asked_question_field {
+
+	margin-left: 20px;
+	padding-left: 20px;
+}
+
+.faq_action{
+	margin-left: 20px;
+	padding-left: 20px;
+}
+
+
+
+.bottomBorder	tr:hover{
+background-color:#fefefe;
+margin-left: 20px;
+padding-left: 20px;
+}
+
+.whole_faq_div {
+	background-color: #F2F2F2 ;
+	overflow: hidden;
+	width: 135%;
+}
+
+.bottomBorder td,th{
+	border-bottom: 1px solid #D8D8D8;
+	padding: 2px;
+}
+
+
+.bottomBorder tr.odd {
+    background-color: #FAFAFA;
+}
+
+.bottomBorder tr.even {
+    background-color: #F2F2F2;
+}
+
+.bottomBorder tr.oddrow{
+	background-color: #FAFAFA;
+}
+
+.bottomBorder tr.evenrow{
+	background-color: #F2F2F2;
+}
+
+#category_content{
+	padding-left: 90px;
+}

@@ -1,0 +1,43 @@
+<div class="whole_detail_div">
+
+	<div>
+			<ul class ="nav nav-tabs">
+				<li class="active"><a href="/admin/dashboard"> DashBoard </a></li>
+				<li><a href="/users/profile"> Profile </a></li>
+				<li><a href="/admin/functional_admin">Functional Admins </a></li>
+				<li><a href="/admin/users/user_group">User Groups</a>  </li>
+				<li><a href="/admin/invitations">Invitations</a>  </li>
+				<li><a href="/admin/investment">Investments</a>  </li>
+				<li><a href="/admin/cms/faq">FAQ</a>  </li>
+				<li><a href="/content">Content management</a>  </li>
+			</ul>
+		</div>	
+		<div>
+		<div class="tab-content">
+			<div class="tab-pane active" id ="tab1" >
+				<div class="index_contents">
+					<div class="span10 well">
+						<div id="users_summary">
+							<div class="pending_invites" style="height:100px;">
+								Total invites today  	:<%=@total_invites_today.count%><br>
+								<span class="label label-success" style="text-align:center" >Accepted : <%=@accepted_today.count%></span><br>
+								<span class="label label-warning">Pending : <%=@pending_today.count%></span><br>
+							</div>
+							<div class="accepted_invites" style="height:100px;">
+								total invites this week :<%=@total_invites_this_week.count%><br>
+								<span class="label label-success">Accepted :<%=@accepted_this_week.count %></span><br>
+								<span class="label label-warning">Pending	:<%= @pending_this_week.count%></span><br>
+							</div>	
+							<div class="rejected_invites" style="height:100px;">
+								Total invites this month	:<%= @total_invites_this_month.count%><br>
+								<span class="label label-success">Accepted :<%= @accepted_this_month.count%></span><br>
+								<span class="label label-warning">Pending	:<%= @pending_this_month.count%></span>	<br>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>			
+</div>			

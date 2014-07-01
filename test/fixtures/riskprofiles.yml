@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  from_mark: 1
+  to_mark: 1
+  status: false
+
+two:
+  name: MyString
+  from_mark: 1
+  to_mark: 1
+  status: false

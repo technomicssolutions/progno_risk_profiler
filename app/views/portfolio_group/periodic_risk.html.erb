@@ -1,0 +1,54 @@
+<ul class="nav nav-tabs">
+  <li><a href="/admin/investment/portfolio_group/" >Set Asset Allocation</a></li>
+  <li><a href="/admin/investment/portfolio_group/efficient_frontier" >Efficient Frontier</a></li>
+  <li  class="active"><a href="/admin/investment/portfolio_group/periodic_risk" >Periodic Risk</a></li>
+  <li><a href="/admin/investment/portfolio_group/portfolios" >Status</a></li>
+</ul>
+<div style="float:left;width:50%;">
+<style>
+
+#my_id{
+	height:450px;
+	width:650px;
+}
+
+</style>
+
+<table>
+	<tr>
+		<%= form_tag(url: {action: "efficient_frontier", controller:'periodic_risk'}) do %>
+
+ 			<td>Asset Allocation Strategy</td>
+      <td> <%= select_tag "id", options_for_select(@portfolio_group.sorted_list.collect {|r| r.id }) %></td></td>
+  		<%= hidden_field_tag "g_id",@portfolio_group.id%>
+  		<td><%= submit_tag "Search", :disable_with => 'Searching...' %></td>
+		<% end %>
+		</tr>
+	</table>
+	<br><br>
+<h3><%= @efficient_frontier.id %></h3>
+<%= high_chart("my_id", @h) %>
+</div>
+
+<div style="float:right;widht:50%;">
+<table>
+	<tr>
+		<%= form_tag(url: {action: "efficient_frontier", controller:'periodic_risk'}) do %>
+
+      <td> <%= select_tag "first", options_for_select(select_list),class:"span12" %></td>
+       <td> <%= select_tag "second", options_for_select(select_list),class:"span12" %></td>
+        <td> <%= select_tag "third", options_for_select(select_list),class:"span12" %></td>
+         <td> <%= select_tag "fourth", options_for_select(select_list),class:"span12" %></td>
+         <%= hidden_field_tag "id",@efficient_frontier.id%>
+         <%= hidden_field_tag "g_id",@portfolio_group.id%>
+  			<tr>
+  				<tr>
+  						<td><%= submit_tag "Search", :disable_with => 'Searching...' %></td>
+  					</tr>
+		<% end %>
+		</tr>
+	</table>
+<br><br>
+
+<%= high_chart("my_bar", @c) %>
+</div>

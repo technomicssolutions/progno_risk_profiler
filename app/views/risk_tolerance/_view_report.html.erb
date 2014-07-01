@@ -1,0 +1,28 @@
+<table border="1px">
+<tr>
+<th>Score</th><th>Behaviour</th><th>Financial</th><th>Total</th>
+</tr>
+<tr> 
+  <td>Maximum</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+</tr>
+<tr> 
+  <td>Current</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+</tr>
+</table>
+<br><br>
+<div id="risk_profile_trial_questionaire_results_comments">
+Dear Admin,
+
+<%= @risk_profile.name unless @risk_profile.blank? %>
+<% unless @total.nil? %>
+<ul>
+<% @total.each do |comments| %>
+ <li> <%= comments %><br></li>
+<% end %>
+</ul>
+<% end %>
+
+</div>
+
+
+

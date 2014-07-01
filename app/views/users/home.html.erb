@@ -1,0 +1,40 @@
+
+<div class = "whole_detail_div">
+<div>
+		<ul class ="nav nav-tabs">
+			<li class="active"><a href="/users/home "> DashBoard </a></li>
+			<li><a href="/users/invite">Invitation </a></li>
+			<li><a href="/users/profile">Profile</a>  </li>
+		</ul>
+	</div>	
+	<div class="index_contents">
+		<strong>
+			<%if have_permissions(1)%>
+				<li><%=link_to "Functional admin", admin_functional_admin_path%><br><br></li>
+			<%end%>	
+			<%if have_permissions(2)%>
+				<li><%=link_to "User admin", admin_users_user_group_path%><br><br></li>
+			<%end%>	
+			<%if have_permissions(3)%>
+				<li><%=link_to "Invitations admin", admin_invitations_path%><br><br></li>
+			<%end%>	
+			<%if have_permissions(4)%>
+				<li><%=link_to "Investment admin", admin_investment_path%><br><br></li>
+			<%end%>	
+			<%if have_permissions(5)%>
+				<li><%=link_to "FAQ admin", admin_cms_faq_path%><br><br></li>
+			<%end%>	
+			<%if have_permissions(6)%>
+				<li><%=link_to "Content management admin",content_path%><br><br></li>
+			<%end%>	
+		</strong>	
+
+
+
+
+	</div>
+
+
+
+
+	</div>

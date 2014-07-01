@@ -1,0 +1,25 @@
+<%= form_tag({:action => 'behaviour_view'}) do %>
+        <% @survey.each do |s| %>
+          <% s.risk_questions.order(:position).each do |questions| %>
+             <div class="questions_trial">
+                <li id="trial_question"><%= questions.risk_question.html_safe %></li>
+                <% questions.risk_question_options.each do |options| %>
+                  <% if options.option_name.nil? %>
+                    <li id="trial_option"> &nbsp;</li>
+                  <% else %>
+                    <li id="trial_option">
+                      <%= options.option_name %>
+                    </li>
+                  <% end %>
+                  <li id="trial_option">
+                    <%= radio_button_tag questions.id, options.id%>
+                  </li>
+                  <br>
+                <% end %>
+              </div> <!-- close div for questions -->
+              <br>
+            <% end %>
+            <br>
+          <% end %>
+        <%= submit_tag "Submit", :disable_with => 'Submiting...' ,class:"btn btn-success" %>
+      <% end -%>

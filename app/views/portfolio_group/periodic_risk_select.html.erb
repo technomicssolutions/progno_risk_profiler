@@ -1,0 +1,19 @@
+<ul class="nav nav-tabs">
+  <li><a href="/admin/investment/portfolio_group/" >Set Asset Allocation</a></li>
+  <li><a href="/admin/investment/portfolio_group/efficient_frontier" >Efficient Frontier</a></li>
+  <li  class="active"><a href="/admin/investment/portfolio_group/periodic_risk" >Periodic Risk</a></li>
+  <li><a href="/admin/investment/portfolio_group/portfolios" >Status</a></li>
+</ul>
+<center>
+<table>
+	<tr>
+		<%= form_tag(url: {action: "efficient_frontier", controller:'periodic_risk'}) do %>
+
+ 			<td>Asset Allocation Strategy</td>
+      <td> <%= select_tag "g_id", options_for_select(PortfolioGroup.all.collect {|r| [r.name, r.id] }) %></td>
+  		<td><%= submit_tag "Search", :disable_with => 'Searching...' %></td>
+		<% end %>
+		</tr>
+	</table>
+	<br><br>
+</center>

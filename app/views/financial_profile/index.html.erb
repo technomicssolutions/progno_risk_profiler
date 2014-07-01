@@ -1,0 +1,39 @@
+<div>
+	<ul class="nav nav-tabs">
+		<li class="active"><a href="/admin/investment/financial_profile" >Set Questions</a></li>
+		<li><a href="/admin/investment/financial_profile_analytics">Analytics</a></li>
+		<li><a href="/admin/investment/financial_profile_trial" >View Questionaire</a></li>
+	</ul>
+</div>
+
+<div id="new_question">
+
+</div>
+
+<div style="margin:10px;">
+  <%= new_question %> 
+</div>
+
+<div class="content_div">
+	<table class="table table-striped table-condensed table-hover">
+	 	<thead>
+      <tr>
+        <th>Question</th>
+        <th>Variable</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+    	<% @financialProfileQuestion.each do |f| %>
+	    	<tr>
+	    		<td><%= f.question.html_safe %></td>
+	    		<td><%= map_variable_name(f.map_variable_id) %></td>
+	    		<td><%= edit_finance_question(f) %> | <%= delete_finance_question(f) %></td>
+	    	</tr>
+	    <% end %>
+    </tbody>
+  </table>
+</div>
+
+
+  

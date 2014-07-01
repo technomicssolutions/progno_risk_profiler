@@ -1,0 +1,18 @@
+<div class="main_box">
+	<div class="site_content">
+		<% @site_contents.each do |content| %>
+			<div class="page">
+				<li id="url"><%= title_link(content) %></li>
+				<li id="page_links"><%= page_links(content) %></li>
+				<li id="page_status"><%= page_published(content) %></li>
+				<li id="page_content"><%= display_content(content) %></li>
+				<li id="read_more"><%= read_more(content) %></li>
+			</div>
+		<% end %>
+	</div>
+
+	<div class="sidebar">
+		<%= new_page %>
+	</div>
+</div>
+

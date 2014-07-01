@@ -1,0 +1,41 @@
+// Place all the styles related to the QuestionCategory controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.faq_question_field :hover {
+		
+}
+    li [class^="icon-"], li [class*="icon-"] {
+    display: inline-block;
+    width: 15px;
+    }
+
+ .faq_table{
+
+ 	margin-left: 20px;
+	padding-left: 20px;
+ }
+
+.faq_question_field {
+padding: 1px;
+margin-left: 3px;
+}
+
+.faq_answer_field {
+	padding: 3px;
+	margin-left: 3px;
+	background-color:#FFFFFF
+}
+
+.whole_faq_div{
+	background-color: #F2F2F2;
+	overflow: hidden;
+	width: 135%;
+	
+}
+.bottomBorder	tr:hover{
+background-color:#fefefe;
+margin-left: 10px;
+padding: 10px;
+}

@@ -1,0 +1,110 @@
+<div class = "personal_view_1div">
+	<table class="table table-striped table-condensed table-hover">
+		<thead>
+			<th align ="center"><h5>Details</h5> </th>
+		</thead>
+		
+		<tbody>
+		<tr>
+			<td>
+		<div id = "personal_view_field">
+			<div class = "personal_view_label"> First Name : </div>
+			<div class = "personal_view_value"> <%=@user.user_detail.first_name %></div></td>
+			</tr>
+		</div>
+		
+		<tr>
+			<td>
+		<div id = "personal_view_field">
+			<div class = "personal_view_label"> Second Name : </div> 
+			<div class = "personal_view_value"><%=@user.user_detail.second_name %></div></td>
+		</tr>
+		</div>
+		
+		<tr>
+			<td>
+		<div id = "personal_view_field">
+			<div class = "personal_view_label"> Date Of Birth:</div>
+			<div class = "personal_view_value"><%=@user.user_detail.date_of_birth %></div></td>
+		</div>
+		</tr>
+		
+		<tr>
+			<td>
+		<div id = "personal_view_field">	
+			<div class = "personal_view_label"> Gender :</div>
+			<div class = "personal_view_value"><%=@user.user_detail.gender %></div></td>
+		</div>
+		</tr>
+
+		<tr>
+			<td>
+		<div id = "personal_view_field">
+			<div class = "personal_view_label"> Marital Status : </div>
+			<div class = "personal_view_value"><%=@user.user_detail.marital_status %></div></td>
+		</div>
+		</tr>
+
+		<tr>
+			<td>
+		<div id = "personal_view_field">
+			<div class = "personal_view_label"> Occupation :</div>
+			<div class = "personal_view_value"><%=@user.user_detail.designation %></div></td>
+		</div>
+		</tr>
+
+		<tr>
+			<td>
+		<div id = "personal_view_field">
+			<div class = "personal_view_label"> Phone :</div>
+			<div class = "personal_view_value"><%=@user.user_detail.phone %></div></td>
+		</div>
+		</tr>
+
+		<tr>
+			<td>
+		<div id = "personal_view_field">
+			<div class = "personal_view_label"> Email Id: </div>
+			<div class = "personal_view_value"><%=@user.email %></div></td>
+		</div>
+		</tr>
+
+		<tr>
+			<td>
+		<div id = "personal_view_field">
+			<div class = "personal_view_label"> Address : </div>
+			<div class = "personal_view_value">	<%=@user.user_detail.address %></div></td>
+		</div>
+		</tr>
+
+		<tr>
+			<td>
+		<div id = "personal_view_field">
+			<div class = "personal_view_label"> City : </div>
+			<div class = "personal_view_value"><%=@user.user_detail.location %></div></td>
+		</div>
+		</tr>
+
+		<tr>
+			<td>
+		<div id = "personal_view_field">
+			<div class = "personal_view_label"> State :</div>
+			<div class = "personal_view_value"> <%=@user.user_detail.state %></div></td>
+		</div>
+		</tr>
+
+		<tr>
+			<td><div id = "personal_view_field">
+			<div class = "personal_view_label"> Country :</div>
+			<div class = "personal_view_value"><%=@user.user_detail.country %></div></td>
+			<br>
+			<br>
+		</div>
+		</tr>
+
+		</tbody>
+</table>
+		<div>
+			<%= button_to 'Edit' , advisor_personal_edit_path(id:@user.id), :remote=> true ,method:'post' ,:class => "btn btn-success"%>
+		</div>
+</div>

@@ -1,0 +1,35 @@
+<div class="form">
+	<%= form_for @site_content, :url => {:action => @action} do |f| -%>
+
+		<div class="form_field">
+			<%= f.hidden_field :id %>
+		</div>
+		<div class="form_label">
+			<%= f.label :page_url, "Url for page" %>
+		</div>
+
+		<div class="form_field">
+			<%= f.text_field :page_url, :placeholder => "Url for the page",:size=>"50x20",:class=>"span10" %>
+		</div>
+
+		<div class="form_label">
+			<%= f.label :content, "Content"%>
+		</div>
+
+		<div class="form_field">
+			<%= f.text_area :content , :placeholder => "Content " ,:size=>"50x20",:class=>"span10"%>
+		</div>
+
+		<div class="form_label">
+			<%= f.label :published, "Published" %>
+		</div>
+
+		<div class="form_field">
+			<%= f.check_box :published %>
+		</div>
+
+		<div class="submit">
+			<%= f.submit "Submit", :disable_with => 'Submiting...' %>
+		</div>
+	<% end %>
+</div>

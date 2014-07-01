@@ -1,0 +1,8 @@
+<div class="main_box">
+	<div class="page">
+		<% @site_content.each do |page| %>
+			<li id="url"><%= page.page_url %></li>
+			<li id="page_content"><%= page.content %></li>
+		<% end %>
+	</div>
+</div>

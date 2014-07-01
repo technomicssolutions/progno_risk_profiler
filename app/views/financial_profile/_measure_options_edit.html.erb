@@ -1,0 +1,41 @@
+<%= tinymce_assets %>
+<div>
+	<%= form_for @finance_measure_options, url: {controller:'financial_profile',action:'measure_options_update'}, action:'POST' do |f| -%>
+
+	<%= f.hidden_field :id %>
+	<%= f.label :finance_measure_id, "Measure" %>
+	<%= f.collection_select :finance_measure_id, @finance_measure, :id, :name %>
+
+	<div class="measure_headings">
+		<li>Range</li>
+		<li>From</li>
+		<li>To</li>
+		<li>Score</li>
+		<li id="measure_comment">Comment</li>
+	</div>
+
+	<div class="measure_label">
+		<li>Above Ideal</li>
+		<li><%= f.text_field :above_ideal_from ,:class=>"span10" %></li>
+		<li><%= f.text_field :above_ideal_to ,:class=>"span10" %></li>
+		<li><%= f.text_field :above_ideal_score ,:class=>"span10" %></li>
+		<li id="measure_comment"><%= f.text_area :above_ideal_comment, size: "90x1" ,:class=>"span12 tinymce" %></li>
+
+		<li>Ideal</li>
+		<li><%= f.text_field :equal_ideal_from ,:class=>"span10" %></li>
+		<li><%= f.text_field :equal_ideal_to ,:class=>"span10" %></li>
+		<li><%= f.text_field :equal_ideal_score ,:class=>"span10" %></li>
+		<li id="measure_comment"><%= f.text_area :equal_ideal_comment, size: "90x1" ,:class=>"span12 tinymce" %></li>
+
+		<li>Below Ideal</li>
+		<li><%= f.text_field :below_ideal_from ,:class=>"span10" %></li>
+		<li><%= f.text_field :below_ideal_to ,:class=>"span10" %></li>
+		<li><%= f.text_field :below_ideal_score ,:class=>"span10" %></li>
+		<li id="measure_comment"><%= f.text_area :below_ideal_comment, size: "90x1" ,:class=>"span12 tinymce" %></li>
+
+	
+		  <%= f.submit "Submit", :disable_with => 'Submiting...' %>
+		</div>
+	<% end %>
+</div>
+<%= tinymce %>

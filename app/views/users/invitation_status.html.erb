@@ -1,0 +1,82 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:fb="https://www.facebook.com/2008/fbml">
+
+<div class="whole_detail_div">
+	<div>
+		<ul class ="nav nav-tabs">
+			<%if check_admin%>
+				<li ><a href="/admin/dashboard"> DashBoard </a></li>
+			<%else%>	
+				<li ><a href="/users/home "> DashBoard </a></li>
+			<%end%>
+			<li class="active"><a href="/users/invite">Invitaion </a></li>
+			<li ><a href="/users/profile">Profile</a>  </li>
+		</ul>
+	</div>	
+	<div>
+		<ul class="nav nav-tabs">
+			<li >
+				<a href="/users/invite" >Invite Friends</a>
+			</li>
+			<li class="active">
+				<a href="/users/invitation_status">Invitation status</a>
+			</li>
+		</ul>
+			<div class ="user_points">
+					<h6><%= "Total User Points:" %> <%= @user.user_points.to_i %></h6>
+			</div>
+			<div>
+				<div class="pending_invites">
+					<div class="invite_category_heading">
+							<h6>Pending Invites</h6>
+					</div>		
+					<div class ="invite_detail_field_pending">
+							<% @pending.each do |p|%>
+								<li><%= p.email%></li>
+							<%end%>
+							<% unless @pending.count == 0 %>
+							<div id="invite_more_details">
+								<ul id="invite_more">
+									<li class="icon-align-justify"><%= link_to "More" ,users_more_invites_path(:category=>"pending") %></li>
+									<li class="icon-envelope" style="width:80px;"><%= link_to "Resend", :action => "resend" %></li>
+								</ul>
+							</div>
+							<% end %>
+					</div>
+				</div>
+			</div>
+			<div>
+					<div class="accepted_invites">
+						<div class="invite_category_heading">
+							<h6>Accepted Invites</h6>
+						</div>	
+						<div class ="invite_detail_field_accepted">
+							<% @accepted.each do |a|%>
+								<li><%= a.email%></li>
+							<%end%>	
+							<% unless @accepted.count == 0 %>
+							<li class="icon-align-justify"><%= link_to "More" ,users_more_invites_path(:category=>"accepted") %></li>
+							<% end %>
+						</div>
+					</div>		
+			</div>
+				<div>
+					<div class="rejected_invites">
+						<div class="invite_category_heading">
+							<h6>Rejected Invites</h6>
+						</div>	
+						<div class ="invite_detail_field_rejected">
+							<% @rejected.each do |r|%>
+								<li><%= r.email%></li>
+							<%end%>
+							<% unless @rejected.count == 0 %>
+							<li class="icon-align-justify"><%= link_to "More" ,users_more_invites_path(:category=>"rejected") %></li>
+							<% end %>
+						</div>
+
+					</div>		
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

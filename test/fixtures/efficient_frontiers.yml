@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  composition: MyString
+  risk: 1
+  return: 1
+
+two:
+  composition: MyString
+  risk: 1
+  return: 1

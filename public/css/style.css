@@ -1,0 +1,362 @@
+
+/* Specific style classes */
+.justified {
+    text-align: justify;
+}
+
+.legend {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: -moz-use-text-color -moz-use-text-color #E5E5E5;
+    border-image: none;
+    border-style: none none solid;
+    border-width: 0 0 1px;
+    color: #333333;
+    display: block;
+    font-size: 21px;
+    line-height: 40px;
+    margin-bottom: 20px;
+    padding: 0;
+    width: 100%;
+}
+
+
+.clear {
+    clear: both;
+}
+
+.green {
+    color: #51a351;
+}
+
+.red {
+    color: #d14;
+}
+
+.align-right {
+    text-align: right;
+}
+
+.table .align-right {
+    text-align: right;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.table .align-center {
+    text-align: center;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.small {
+    font-weight: normal;
+    font-size: 80%;
+}
+
+
+/* Header Navbar Override */
+.header > .navbar-inner {
+    background: #376092;
+}
+
+.header > .navbar-inner > .container {
+    width: 940px;
+    height: 80px;
+}
+
+.header > .navbar-inner > .container > .brand{
+    color: #fff;
+    text-shadow: none;
+    padding-top: 30px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.header > .navbar-inner > .container > .nav {
+    margin: 40px 10px 0 40px;
+}
+
+.header > .navbar-inner > .container > .nav > li > a {
+    text-decoration: none;
+    color: #fff;
+    text-shadow: none;
+}
+.header > .navbar-inner > .container > .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus {
+    background: #376092;
+    box-shadow: none;
+    color: #fff;
+}
+
+
+/* Sidebar Override */
+.side-nav > .nav-stacked > li {
+    text-align: center;
+}
+
+.side-nav > .nav-stacked > li > a {
+    border: none;
+    background: #adc6e4;
+    color: #5a7eac;
+}
+
+.side-nav > .nav-stacked > li > a:hover {
+    border: none;
+    background: #adc6e4;
+    color: #5a7eac;
+}
+
+.side-nav > .nav-stacked > .active > a {
+    font-weight: bold;
+}
+
+.side-nav > .logged_name {
+    text-align: center;
+    font-weight: bold;
+    color: #5a7eac;
+}
+
+
+/* Summary Content */
+.summary {
+    margin-left: 15px;
+}
+
+.summary > .head {
+    background: #5a7eac;
+    height: 20px;
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+}
+
+.summary > .head_content {
+    padding-top: 10px;
+    background: #E5E5E5;
+    color: #000;
+    text-align: center;
+    font-weight: bold;
+    height: 90px;
+}
+
+.summary > .head_content > .l0 {
+    padding-top: 25px;
+    font-size: 25px;
+}
+
+.summary > .head_content > .l1 {
+    padding-top: 5px;
+    font-size: 25px;
+}
+
+.summary > .head_content > .l2 {
+    padding-top: 15px;
+    font-size: 22px;
+}
+
+.summary > .head_content_small {
+    padding-top: 10px;
+    background: #E5E5E5;
+    color: #000;
+    text-align: center;
+    font-weight: bold;
+    height: 30px;
+    font-size: 20px;
+}
+
+
+/* Graphs */
+.graph {
+    margin-top: 10px;
+    margin-left: 8px;
+    max-height: 250px;
+}
+
+.graph > .head {
+    background: #5a7eac;
+    padding-left: 10px;
+    height: 20px;
+    width: 175px;
+    color: #fff;
+    text-align: left;
+    font-weight: bold;
+}
+
+.graph > .content {
+    padding: 0px;
+    overflow: hidden;
+    border: 1px #E5E5E5 ridge;
+    vertical-align: bottom;
+    min-height: 225px;
+}
+
+.graph > .content > img {
+    vertical-align: bottom;
+}
+
+
+/* Tables */
+.tables {
+    margin-top: 10px;
+    margin-left: 5px;
+    padding: 5px;
+    border-bottom: 4px solid #376092;
+}
+
+.tables > .nav {
+    margin-bottom: 0px;
+}
+
+.tables > .nav-tabs {
+    border-bottom: 1px solid #376092;
+}
+
+.tables > .nav-tabs > li > a {
+    background: #adc6e4;
+    padding: 2px 5px;
+    color: #fff;
+    font-weight: bold;
+    border: 0px;
+    border-radius: 0px;
+}
+
+.tables > .nav-tabs > .active > a {
+    height: 25px;
+    background: #376092;
+}
+
+.tables > .nav-tabs > .active > a:hover {
+    border: 0px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.tables > .tab-content > .tab-pane > table {
+    margin-bottom: 0px;
+}
+
+.tables > .tab-content > .tab-pane > table > thead {
+    background: #376092;
+}
+
+.tables > .tab-content > .tab-pane > table > thead > tr > td {
+    text-align: center;
+    vertical-align: middle;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 4px;
+}
+
+.tables > .tab-content > .tab-pane > table > tbody > tr > td {
+    text-align: center;
+    vertical-align: middle;
+    font-size: 12px;
+    padding: 2px;
+    min-width: 8px;
+}
+
+
+/* Login Horizontal Form Override */
+.login >.form-horizontal .control-label {
+    width: 100px;
+}
+
+.login > .form-horizontal .controls {
+    margin-left: 125px;
+}
+
+
+/* Social Media Icons */
+.socmed {
+    text-align: center;
+    margin: 0px;
+    width: 255px;
+    overflow: hidden;
+}
+
+.twitter a,.facebook a,.tumblr a,.dribbble a,.linkedin a,.rss a,.delicious a,.google a,.digg a,.digg2 a,.flickr a,.lastfm a,.myspace a,.picasa a,.sharethis a,.skype a,.twitter2 a,.vimeo a,.youtube a,.yahoo a,.yahoo2 a,.wikipedia a {
+    float:left;
+    background:url('../images/socmed.png') no-repeat left bottom;
+    text-indent:8000px;
+    width:32px;
+    height:32px;
+    margin-right:10px;
+    -o-transition:all .3s;
+    -moz-transition:all .3s;
+    -webkit-transition:all .3s;
+    -ms-transition:all .3s;
+}
+
+.twitter a:hover,.facebook a:hover,.tumblr a:hover,.dribbble a:hover,.linkedin a:hover,.rss a:hover,.delicious a:hover,.google a:hover,.digg a:hover,.digg2 a:hover,.flickr a:hover,.lastfm a:hover,.myspace a:hover,.picasa a:hover,.sharethis a:hover,.skype a:hover,.twitter2 a:hover,.vimeo a:hover,.youtube a:hover,.yahoo a:hover,.yahoo2 a:hover,.wikipedia a:hover {
+    background:url('../images/socmed.png') no-repeat left top;
+}
+
+.twitter,.twitter a{background-position:-0px bottom}
+.twitter a:hover{background-position:-0px top}
+.twitter2,.twitter2 a{background-position:-528px bottom}
+.twitter2 a:hover{background-position:-528px top}
+.facebook,.facebook a{background-position:-33px bottom}
+.facebook a:hover{background-position:-33px top}
+.tumblr,.tumblr a{background-position:-66px bottom}
+.tumblr a:hover{background-position:-66px top}
+.dribbble,.dribbble a{background-position:-99px bottom}
+.dribbble a:hover{background-position:-99px top}
+.linkedin,.linkedin a{background-position:-133px bottom}
+.linkedin a:hover{background-position:-133px top}
+.rss,.rss a{background-position:-166px bottom}
+.rss a:hover{background-position:-166px top}
+.delicious,.delicious a{background-position:-199px bottom}
+.delicious a:hover{background-position:-199px top}
+.google,.google a{background-position:-233px bottom}
+.google a:hover{background-position:-233px top}
+.digg,.digg a{background-position:-266px bottom}
+.digg a:hover{background-position:-266px top}
+.digg2,.digg2 a{background-position:-299px bottom}
+.digg2 a:hover{background-position:-299px top}
+.flickr,.flickr a{background-position:-331px bottom}
+.flickr a:hover{background-position:-331px top}
+.lastfm,.lastfm a{background-position:-364px bottom}
+.lastfm a:hover{background-position:-364px top}
+.myspace,.myspace a{background-position:-397px bottom}
+.myspace a:hover{background-position:-397px top}
+.picasa,.picasa a{background-position:-431px bottom}
+.picasa a:hover{background-position:-431px top}
+.sharethis,.sharethis a{background-position:-464px bottom}
+.sharethis a:hover{background-position:-464px top}
+.skype,.skype a{background-position:-497px bottom}
+.skype a:hover{background-position:-497px top}
+.vimeo,.vimeo a{background-position:-562px bottom}
+.vimeo a:hover{background-position:-562px top}
+.youtube,.youtube a{background-position:-594px bottom}
+.youtube a:hover{background-position:-594px top}
+.yahoo,.yahoo a{background-position:-628px bottom}
+.yahoo a:hover{background-position:-628px top}
+.yahoo2,.yahoo2 a{background-position:-662px bottom}
+.yahoo2 a:hover{background-position:-662px top}
+.wikipedia,.wikipedia a{background-position:-694px bottom}
+.wikipedia a:hover{background-position:-694px top}
+
+
+/* Footer Bar */
+.footer {
+    margin-top: 10px;
+}
+
+.footer > .navbar-inner {
+    padding-top: 15px;
+    background: #376092;
+    margin: 0px;
+    color: #fff;
+}
+
+.footer > .navbar-inner > .container {
+    width: 940px;
+    height: 20px;
+}

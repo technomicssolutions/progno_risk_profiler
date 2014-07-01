@@ -1,0 +1,29 @@
+<div class="whole_detail_div">
+	<div>
+		<ul class ="nav nav-tabs">
+			<%if check_admin%>
+				<li ><a href="/admin/dashboard"> DashBoard </a></li>
+			<%else%>	
+				<li ><a href="/users/home "> DashBoard </a></li>
+			<%end%>
+			<li class="active"><a href="/users/invite">Invitaion </a></li>
+			<li ><a href="/users/profile">Profile</a>  </li>
+		</ul>
+	</div>	
+
+<div class="resend_invitation_mails">
+	<%= form_tag(:action => "resend_invite") do %>
+	  <% @contacts.each do |email| %>
+	  <div id="resend_emails">
+		  <li>
+		  	<%= check_box_tag 'users_emails[]', email[:email] %>
+		  	<%= (email[:name] ||= email[:email]) %>
+	  	</li>
+	  </div>
+	  <% end %>
+	  <%= text_area_tag 'invitation_message', nil, :class => 'span4' %>
+	  <br>
+	  <%=submit_tag "Invite", :class=> "btn btn-success" %>
+	<% end %>
+</div>
+</div>

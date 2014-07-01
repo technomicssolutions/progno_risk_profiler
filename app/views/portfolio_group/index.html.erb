@@ -1,0 +1,87 @@
+<ul class="nav nav-tabs">
+  <li class="active"><a href="/admin/investment/portfolio_group/" >Set Asset Allocation</a></li>
+  <li><a href="/admin/investment/portfolio_group/efficient_frontier" >Efficient Frontier</a></li>
+  <li><a href="/admin/investment/portfolio_group/periodic_risk" >Periodic Risk</a></li>
+  <li><a href="/admin/investment/portfolio_group/portfolios" >Status</a></li>
+</ul>
+
+<div id="asset_allocation">
+	<%= form_for @portfolio_group, url:{controller:'portfolio_group',action:'create'} do |f| -%>
+	<table>
+		<tr>
+			<td>Add Asset Allocation</td><td><%= f.submit "Add Asset Allocation" %></td>
+		</tr>
+		<tr>
+			<td colspan="2">&nbsp;</td>
+		</tr>
+  	<tr>
+  		<td>Allocation Strategy Name</td>
+  		<td><%= f.text_field :name %></td>
+  	</tr>
+  	<tr>
+  		<td>Time Horizon (Yrs)</td>
+  		<td><%= f.text_field :time_horizon %></td>
+  	</tr>
+  	<tr>
+      <td>Asset Allocation Id</td>
+      <td> <%= f.select(:rolling_time_period_id, RollingTimePeriod.all.collect {|r| [ r.asset_allocation, r.id ] }) %></td>
+  	</tr>
+  		</table>
+  		<table>
+			<tr>
+				<td colspan="3">Asset Class Constraints</td>
+			</tr>
+			<tr border ="1">
+				<th>Asset Class</th>
+				<th>Minimum Weight</th>
+				<th>Maximum Weight</th>
+			</tr>
+			<%= f.fields_for :portfolio_group_assets do |builder| %>
+  		  <%= render "portfolio_group_asset", :f => builder %>
+  		<% end %>
+      <tr>
+        <td colspan="3">&nbsp;</td>
+      </tr>
+      <tr>
+        <td>Weight Changed by</td>
+        <td colspan="2"><%= f.text_field :weight_change %></td>
+      </tr>
+      <tr>
+        <td>Risk Free Rate</td>
+        <td colspan="2"><%= f.text_field :risk_free %></td>
+      </tr>
+  		</table>
+
+<% end -%>
+
+</div>
+
+<div style="float:right;width:650px;left-margin:200px">
+
+<table border="1">
+<% if !@portfolio_groups.nil? then %>
+<% @portfolio_groups.each do |portfolio_group| %>
+<tr>
+  <td width="250px"><b>Asset Allocation - <%= portfolio_group.name%></b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= delete_portfolio_group(portfolio_group.id)%></td>
+  <td width="100px">&nbsp;</td>
+  <td width="200px">&nbsp;</td>
+</tr>
+<tr>
+  <td>Rolling Time Perioid - <%=portfolio_group.rolling_time_period.rolling_period_added %></td>
+  <td>&nbsp;</td>
+  <td>Time Horizon - <%=portfolio_group.time_horizon %> </td>
+</tr>
+<tr>
+  <td>Time Period - <%=portfolio_group.rolling_time_period.data_unit %></td>
+  <td>&nbsp;</td>
+  <td>No. Data Units- <%=portfolio_group.rolling_time_period.return_units_no + portfolio_group.rolling_time_period.rolling_period_added * 12 %> </td>
+</tr>
+<tr>
+  <td>Start Date - <%=portfolio_group.rolling_time_period.end_date %></td>
+  <td>&nbsp;</td>
+  <td>End Date- <%=portfolio_group.rolling_time_period.start_date_cal %> </td>
+</tr>
+<% end %>
+</table>
+</div>
+<% end %>

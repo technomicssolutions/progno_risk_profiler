@@ -1,0 +1,77 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:fb="https://www.facebook.com/2008/fbml">
+
+<div class="whole_detail_div">
+	<div>
+		<ul class ="nav nav-tabs">
+			<%if check_admin%>
+				<li ><a href="/admin/dashboard"> DashBoard </a></li>
+			<%else%>	
+				<li ><a href="/users/home "> DashBoard </a></li>
+			<%end%>
+			<li class="active"><a href="/users/invite">Invitaion </a></li>
+			<li ><a href="/users/profile">Profile</a>  </li>
+		</ul>
+	</div>	
+	<div>
+		<ul class="nav nav-tabs">
+			<li class="active">
+				<a href="/users/invite">Invite Friends</a>
+			</li>
+			<li>
+				<a href="/users/invitation_status">Invitation status</a>
+			</li>
+		</ul>
+		<div class="tab-content">
+			<div class="tab-pane active" id ="tab1" >
+				<div class="bulk_invites_form">
+					<div id="import_form">
+						<li>
+							<%= form_tag( {:action => 'send_bulk_invitations'}, method: 'post') do %>
+							<%= label_tag "Enter the mail ids to invite (Seperated by comma) "%>
+							<%= text_area_tag :user_mails, "",class:"span4", size:"5x5"  %>
+							<br>
+							<%= label_tag "Enter your message "%>
+							<%= text_area_tag :invitation_message, "",class:"span4", size:"5x5"  %>
+							<br>
+							<%= submit_tag "Invite", :class=>"btn btn-primary" %>
+							<% end %>	
+						</li>
+					</div>
+					<div id="import_gmail">
+						<li class="btn btn-success"><a href="/contacts/gmail/" title="">Invite Gmail Contacts</a></li>
+					</div>
+					<div id="import_facebook">
+						<div id="fb-root"></div>
+				      <script src="http://connect.facebook.net/en_US/all.js"></script>
+				      <input type="button"
+				        onclick="sendRequestViaMultiFriendSelector(); return false;"
+				        value="Invite Facebook Friends" class="btn btn-success"
+				      />
+				      <script>
+				        FB.init({
+				          appId  : '135867019917543',
+				          frictionlessRequests: true
+				        });
+				        function sendRequestViaMultiFriendSelector() {
+				          FB.ui({
+				          	method: 'apprequests',
+				            message: 'Invitation to Progno App',
+				            data: 'hehehe'
+				          }, requestCallback);
+				        }
+				        function requestCallback(response) {
+				        			$.ajax({
+          							type: "PUT",
+          							url: '/users/facebook_invite',
+							          data: "user_ids="+response.to,
+											});
+						        }
+				      </script>
+				    </div>
+					</div>
+				</div>
+			
+		</div>
+	</div>
+</div>

@@ -1,0 +1,8 @@
+<p>Hello <%= @resource.email %>!</p>
+
+<p><% name = User.find(@resource.invited_by_id).try(:user_detail).try(:first_name) %>
+<%= name ||= "Someone" %> has invited you to <%= root_url %>, you can accept it through the link below.</p>
+
+<p><%= link_to 'Accept invitation', accept_invitation_url(@resource, :invitation_token => @resource.invitation_token) %></p>
+
+<%= @resource.invitation_message %>

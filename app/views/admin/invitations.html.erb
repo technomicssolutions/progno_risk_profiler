@@ -1,0 +1,71 @@
+<div class="whole_detail_div">
+
+	<div>
+			<ul class ="nav nav-tabs">
+				<%if check_admin%>
+					<li><a href="/admin/dashboard"> DashBoard </a></li>
+				<%end%>
+				<li><a href="/users/profile"> Profile </a></li>
+				<%if have_permissions(1)%>
+					<li><a href="/admin/functional_admin">Functional Admins </a></li>
+				<%end%>		
+				<%if have_permissions(2)%>
+					<li><a href="/admin/users/user_group">User Groups</a>  </li>
+				<%end%>			
+				<li class="active"><a href="/admin/invitations">Invitations</a>  </li>
+				<%if have_permissions(4)%>	
+					<li><a href="/admin/investment">Investments</a>  </li>
+				<% end %>
+				<%if have_permissions(5)%>	
+					<li><a href="/admin/cms/faq">FAQ</a>  </li>
+				<% end %>	
+				<%if have_permissions(6)%>	
+					<li><a href="/content">Content management</a>  </li>
+				<% end %>	
+			</ul>
+		</div>	
+		<div>
+		<div class="tab-content">
+			<div class="tab-pane active" id ="tab1" >
+				<div>
+					<ul class="nav nav-tabs">
+						<li class="active" style="width:120px; text-align:center;">
+							<a href="invitations">List</a>
+						</li>
+						<li>
+							<a href="settings">Settings</a>
+						</li>
+					</ul>
+				</div>	
+				<div class="index_contents">
+					<div class="span10 well">
+						<div class = "table_div">
+							<table cellpadding="0" cellspacing="0" border="1" class="table table-striped table-bordered" id="example" width="900px;">
+								<thead>
+									<tr>
+										<th style="width: 5%"><h6>Sl no.</h6></th>
+						        <th style="width: 33%"><h6>Invitation sent by</h6></th>
+						        <th style="width: 33%"><h6>Invitation sent to</h6></th> 
+						        <th style="width: 33%"><h6>Invitation sent at</h6></th>
+						        <th style="width: 33%"><h6>Status</h6></th>
+						      </tr>
+						    </thead>
+						    <tbody>
+							 		<% @total_invites_filtered.each_with_index do |invite,index| %>
+							 			<tr>
+							 				<td><%= index+1 %> </td>
+							        <td><%= link_to "#{invite[1]}", admin_invites_by_user_path(:id=>invite[0]), :method=>"post" %> </td>
+							        <td><%= invite[2] %> </td>
+							        <td><%= invite[3]%> </td>
+							        <td><%= invite[4]%> </td>
+							      </tr>
+							    <%end%>  
+						    </tbody>	
+						  </table>  
+						</div>	
+					</div>
+				</div>	
+			</div>
+		</div>
+	</div>			
+</div>					

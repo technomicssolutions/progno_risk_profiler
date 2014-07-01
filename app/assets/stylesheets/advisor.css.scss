@@ -1,0 +1,60 @@
+// Place all the styles related to the Advisor controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.advisor_personal_detail_field {
+	padding: 2px;
+}
+
+#marital_status {
+	list-style: none;
+	margin: 0;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+#gender {
+	list-style: none;
+	margin: 0;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+#gender li {
+	display: inline;
+}
+
+#marital_status li {
+	display: inline;
+}
+
+#personal_view_field {
+	display:inline;
+
+
+}
+
+.personal_view_div{
+	padding: 2px;
+}
+
+.personal_view_label{
+	width: 50%;
+	float: left;
+	line-height: 25px;
+
+	
+}
+
+.personal_view_value{
+	width: 50%;
+	float: right;
+	line-height: 25px;
+}
+
+#advisor_behavior_questions{
+	
+}
+.table_personal_view{
+	padding-left: 5px;
+
+}

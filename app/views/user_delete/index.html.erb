@@ -1,0 +1,68 @@
+<div class="whole_detail_div">
+
+<div>
+		<ul class ="nav nav-tabs">
+			<li ><a href="/users/home "> DashBoard </a></li>
+			<li><a href="/users/invite">Invite Friends </a></li>
+			<li><a href="/users/points"> Points </a> </li> 
+			<li class="active"><a href="/users/profile">Profile</a>  </li>
+		</ul>
+	</div>	
+	<div>
+
+	<ul class="nav nav-tabs">
+		<li class="active"><a href="#tab1" data-toggle="tab">personal</a></li>
+		<li><a href="#tab2" data-toggle="tab">Professional</a></li>
+	</ul>
+	<div class="tab-content">
+		<div class="tab-pane active" id ="tab1" >
+			<h6>personal details</h6>
+					<div class = "Image_field">
+						<%= image_tag (@user_details.photo.url) ,:size => "120x120" %>
+					</div>
+					<div class ="detail_field">
+						<%= "First Name :" %>
+						<%= @user_details.first_name %>
+					</div>
+					<div class = "detail_field">
+						<%= "Second Name :" %>
+						<%= @user_details.second_name %>
+					</div>
+					<div class ="detail_field">
+						<%= "Date Of Birth :" %>
+						<%= @user_details.date_of_birth %>
+					</div>
+					<div class ="detail_field">
+						<%= "Address :" %>
+						<%= @user_details.address %> 
+					</div>
+					<div class ="edit_div">
+					<%= button_to "Edit" , users_profile_edit_path(:id => @user.id),:method =>"get"%>
+					<%= link_to "Back to Home" ,users_home_path(:id =>@user.id)%>
+				</div>
+		</div>
+	<div class="tab-pane fade" id = "tab2">
+		<h6>Professional details</h6>
+					
+			<div class ="detail_field">
+				<%=  "Company Name :" %>
+				<%= @user_details.company_name %>
+			</div>
+
+			<div class ="detail_field">
+				<%=  "Comapny Addrress :" %>
+				<%= @user_details.second_name %>
+			</div>
+
+			<div class ="detail_field">
+				<%= "designation" %>
+				<%= @user_details.designation %>
+			</div>
+		<div class ="edit_div">	
+			<%= button_to "Edit" , users_profile_edit_path(:id => @user.id),:method =>"get"%>
+			<%= link_to "Back to Home" ,users_home_path(:id =>@user.id)%>
+		</div>
+	</div>
+</div>
+
+

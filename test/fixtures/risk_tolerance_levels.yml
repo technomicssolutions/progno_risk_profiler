@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  level: MyString
+  from: 1
+  to: 1
+
+two:
+  level: MyString
+  from: 1
+  to: 1

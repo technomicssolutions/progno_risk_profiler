@@ -1,0 +1,47 @@
+<tr>
+		<th style="text-align:center" colspan="2" rowspan="" headers="" scope="">Personal Profile</th>
+	</tr>
+	<tr>
+		<td>Full Name</td>
+		<td><%= @client.try(:user_detail).try(:full_name) %></td>
+	</tr>
+	<tr>
+		<td>Date of birth</td>
+		<td><%= @client.try(:user_detail).try(:date_of_birth) %></td>
+	</tr>
+	<tr>
+		<td>Gender</td>
+		<td><%= @client.try(:user_detail).try(:gender) %></td>
+	</tr>
+	<tr>
+		<td>Marital Status</td>
+		<td><%= @client.try(:user_detail).try(:marital_status) %></td>
+	</tr>
+	<tr>
+		<td>occupation</td>
+		<td><%= @client.try(:user_detail).try(:designation) %></td>
+	</tr>
+	<tr>
+		<td>Phone</td>
+		<td><%= @client.try(:user_detail).try(:phone) %></td>
+	</tr>
+	<tr>
+		<td>Email</td>
+		<td><%= @client.email %></td>
+	</tr>
+	<tr>
+		<td>Address</td>
+		<td><%= @client.try(:user_detail).try(:address) %></td>
+	</tr>
+	<tr>
+		<td>City</td>
+		<td><%= @client.try(:user_detail).try(:location) %></td>
+	</tr>
+	<tr>
+		<td>State</td>
+		<td><%= @client.try(:user_detail).try(:state) %></td>
+	</tr>
+	<tr>
+		<td>Country</td>
+		<td><%= @client.try(:user_detail).try(:country) %></td>
+	</tr>

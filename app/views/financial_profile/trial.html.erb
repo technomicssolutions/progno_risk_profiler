@@ -1,0 +1,31 @@
+
+<div>
+	<ul class="nav nav-tabs">
+		<li><a href="/admin/investment/financial_profile" >Set Questions</a></li>
+		<li><a href="/admin/investment/financial_profile_analytics">Analytics</a></li>
+		<li class="active"><a href="/admin/investment/financial_profile_trial" >View Questionaire</a></li>
+	</ul>
+</div>
+
+
+<div class="content_div">
+<div id="trial_questionaire_results">
+
+</div>
+
+<div class="trial_questionaire">
+	<table class="table table-striped table-condensed table-hover">
+	  <%= form_tag({:action => 'trial_calculate'}, :remote => true) do  %>
+	    <% @total.each do |f| %>
+		    <tr>
+		      <th><%= f.question.html_safe %></th>
+		      <th><%= text_field_tag(:"#{f.map_variable_id}") %></th>
+		    </tr>
+	    <% end %>
+	    <tr>
+	    	<th><%= submit_tag "Submit" %></th>
+	    </tr>
+	  <% end %>
+	</table>
+</div>
+</div>

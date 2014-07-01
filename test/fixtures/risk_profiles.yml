@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  risk_profile_name: MyString
+  from_mark: 1
+  to_mark: 1
+
+two:
+  risk_profile_name: MyString
+  from_mark: 1
+  to_mark: 1

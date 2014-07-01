@@ -1,0 +1,63 @@
+<div class="whole_detail_div">
+
+	<div>
+			<ul class ="nav nav-tabs">
+				<%if check_admin%>
+					<li><a href="/admin/dashboard"> DashBoard </a></li>
+				<%end%>
+				<li><a href="/users/profile"> Profile </a></li>
+				<%if have_permissions(1)%>
+					<li  class="active"><a href="/admin/functional_admin">Functional Admins </a></li>
+				<%end%>	
+				<%if have_permissions(2)%>	
+					<li><a href="/admin/users/user_group">User Groups</a>  </li>
+				<%end%>		
+				<%if have_permissions(3)%>	
+					<li><a href="/admin/invitations">Invitations</a>  </li>	
+				<%end%>
+				<%if have_permissions(4)%>	
+					<li><a href="/admin/investment">Investments</a>  </li>
+				<% end %>
+				<%if have_permissions(5)%>	
+					<li><a href="/admin/cms/faq">FAQ</a>  </li>
+				<% end %>	
+				<%if have_permissions(6)%>	
+					<li><a href="/content">Content management</a>  </li>
+				<% end %>	
+			</ul>
+		</div>	
+		<div>
+			<ul class="nav nav-tabs">
+				<li>
+					<a href="functional_admin" style="width:100px; text-align:center;">List</a>
+				</li>
+				<li class="active">
+					<a href="functional_admins_new" >Add an admin</a>
+				</li>
+			</ul>
+			<div class="index_contents">
+				<div class="span10 well">
+					<%= form_tag :action=>"create_functional_admin", :method=>"post" %>
+						<div>
+							<%=label_tag :email%>
+							<%=text_field_tag :email%>
+						</div>
+
+
+						<div>
+							<h6>Mark User groups :</h6>
+							<br>
+							<%@groups.each do |group|%>
+								<%= check_box_tag 'group_ids[]', group.id %>
+					      <%= group.name %>
+					      <br><br>
+					    <%end%>
+					  </div>
+					  <br>
+					  <%=submit_tag%>
+						</div>
+					</div>
+			</div>	
+		</div>	
+	</div>
+</div>		

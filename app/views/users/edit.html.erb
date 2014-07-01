@@ -1,0 +1,81 @@
+<div class = "whole_detail_div">
+	<div>
+		<ul class ="nav nav-tabs">
+			<%if check_admin%>
+				<li ><a href="/admin/dashboard"> DashBoard </a></li>
+			<%else%>	
+				<li ><a href="/users/home "> DashBoard </a></li>
+			<%end%>
+			<li><a href="/users/invite">Invitation </a></li>
+			<li class="active" ><a href="/users/profile">Profile</a>  </li>
+		</ul>
+	</div>	
+	<% @action ="update" %>
+	<div class="well">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#tab1" data-toggle="tab">personal</a></li>
+			<li><a href="#tab2" data-toggle="tab">Professional</a></li>
+			<li><a href ="/users/profile/edit_password">Change Password</a></li>
+		</ul>
+		<div class="tab-content">
+			<div class="tab-pane active" id ="tab1" >
+	  		<div style="float:left">
+					<%= form_for @user_details , :url => {:action => @action},:html => { :multipart => true } do |f| %>
+						<%= f.hidden_field :id, :value=>@user_details.id %>
+						<%= f.file_field :image %>	
+						<%= f.hidden_field :image_remote_url %>
+						<%= f.label :first_name, "First Name" %>
+						<%= f.text_field :first_name %>
+						<%= f.label :second_name, "Second Name" %>
+						<%= f.text_field :second_name %>
+						<%= f.label :date_of_birth, "Date Of Birth" %>
+						<%= f.text_field :date_of_birth , :id => 'datepicker'%>
+						<%= f.label :gender, "Gender" %>
+						<%= f.select(:gender, options_for_select([["Male", 'male'],["Female",'female']], :selected =>@user_details.gender)) %>
+						<%= f.label :marital_status, "Marital status" %>
+						<%= f.select(:marital_status, options_for_select([["single",1],["married",2],["Widowed",3],["Separated",4],["Divorced",5]],:selected=>@user_details.marital_status)) %>
+						<%= f.label :phone, "Phone#" %>
+						<%= f.text_field :phone %>
+						<%= f.label :address ,"Address" %>
+						<%= f.text_area :address,:size => "15x8" %> 
+						<%= f.label :location, "Location" %>
+						<%= f.text_field :location %>
+						<div>
+							<%= f.submit "Update"%> 
+						</div>	
+					</div>		
+					<div id="sync_profiles"> 
+						<strong>Sync Profiles using</strong><br>
+						<li id="sync_google"><%= link_to "Google ", users_sync_with_google_path ,:class=>"btn btn-success"%></li>
+						<li id="sync_linked_in"><%= link_to "Linkedin ", users_sync_with_linkedin_path ,:class=>"btn btn-success"%></li>
+						<li id="sync_facebook"><%= link_to "Facebook ", users_sync_with_fb_path ,:class=>"btn btn-success"%></li>
+					</div>	
+					<%end%>
+				
+			</div>
+			<div class="tab-pane fade" id = "tab2">
+				<div style="float:left">
+					<%= form_for @user_details , :url => {:action => @action} do |f| %>
+						<%= f.hidden_field :id %>
+						<%= f.label :company_name, "Company Name" %>
+						<%= f.text_field :company_name %>
+						<%= f.label :company_address, "Comapny Addrress" %>
+						<%= f.text_field :company_details %>
+						<%= f.label :designation, "Designation" %>
+						<%= f.text_field :designation %>
+						<div>
+							<%= f.submit "Update"%> 
+						</div>
+				</div>		
+						<div id="sync_profiles"> 
+							<strong>Sync Profiles using</strong><br>
+							<li id="sync_google"><%= link_to "Google ", users_sync_with_google_path ,:class=>"btn btn-success"%></li>
+							<li id="sync_linked_in"><%= link_to "Linkedin ", users_sync_with_linkedin_path ,:class=>"btn btn-success"%></li>
+							<li id="sync_facebook"><%= link_to "Facebook ", users_sync_with_fb_path ,:class=>"btn btn-success"%></li>
+						</div>	
+					<%end%>
+				
+			</div>
+		</div>
+	</div>
+</div>

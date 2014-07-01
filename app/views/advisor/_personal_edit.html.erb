@@ -1,0 +1,19 @@
+<%= form_for @user ,url:{action:'personal_update'},method:'post' do  |f| %>
+
+<%=hidden_field_tag :id,@user.id%>
+
+	<%= f.fields_for :user_detail do |build| %> 
+
+		<%= render 'personal_detail' , f:build %>
+	<%end%>
+
+	<%= f.label :email, "Email Id" %>
+	<%= f.text_field :email ,readonly:true%>
+
+	<%= f.fields_for :user_detail do |build| %>
+		<%= render 'location_detail' , f:build %>
+	<%end%>
+
+	<%= f.submit "Update", :disable_with => 'Submiting...', :class => "btn btn-success" %>
+
+<%end%>		

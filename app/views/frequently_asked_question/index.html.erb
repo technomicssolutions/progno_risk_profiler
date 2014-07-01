@@ -1,0 +1,19 @@
+<div class = "whole_faq_div">
+	<div>
+		<ul class ="nav nav-tabs">
+			<li class="active"><a href="/admin/cms/faq "> FAQ Home </a></li>
+			<li><a href="/admin/cms/faq/new">Add Question </a></li>
+			<li><a href="/admin/cms/faq/unpublish"> Unpublished Questions </a> </li> 
+			<li><a href="/admin/cms/faq/category">Category List</a>  </li>
+		</ul>
+	</div>
+
+	<% @question_category.each do |f| %>
+		<body>
+			<div style ="float: left;" id ="category_content" align ="center">
+			 <br> <%= link_to (image_tag(f.image.url,:size =>"48x48") + f.name ).html_safe, 
+			admin_cms_faq_show_path(:cat => f.id)	%>
+			</div>
+	</body>	
+	<% end -%>
+</div>

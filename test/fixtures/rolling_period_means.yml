@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  mean: 9.99
+  standard_deviation: 9.99
+  asset_class_id: 1
+  rolling_time_period_id: 1
+
+two:
+  mean: 9.99
+  standard_deviation: 9.99
+  asset_class_id: 1
+  rolling_time_period_id: 1

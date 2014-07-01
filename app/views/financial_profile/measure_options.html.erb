@@ -1,0 +1,59 @@
+<div>
+<ul class="nav nav-tabs">
+<li><a href="/admin/investment/financial_profile" >Set Questions</a></li>
+<li  class="active"><a href="/admin/investment/financial_profile_analytics">Analytics</a></li>
+<li><a href="/admin/investment/financial_profile_trial" >View Questionaire</a></li>
+
+</ul>
+</div>
+
+<div id="measure_options">
+
+</div>
+
+
+<%= add_measure_options %>
+
+
+
+<div>
+  <table class="table table-striped table-condensed table-hover">
+    <thead>
+      <tr>
+        <th>Measure</th>
+        <th colspan="2">Range</th>
+        <th>Score</th>
+        <th>Comment</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @finance_measure_options.each do |measure| %>
+      
+      <tr>
+        <td rowspan="3"><%= measure_name(measure.finance_measure_id) %></td>
+        <td><%= measure.above_ideal_from %></td>
+        <td><%=  measure.above_ideal_to %></td>
+        <td><%=  measure.above_ideal_score %></td>
+        <td><%=  measure.above_ideal_comment %></td>
+        <td rowspan="3"><%= edit_measure_option(measure.id) %> | <%= delete_measure_option(measure.id) %></td>
+      </tr>
+      <tr>
+        <td><%= measure.equal_ideal_from %></td>
+        <td><%=  measure.equal_ideal_to %></td>
+        <td><%=  measure.equal_ideal_score %></td>
+        <td><%=  measure.equal_ideal_comment %></td>
+      </tr>
+      <tr>
+        <td><%= measure.below_ideal_from %></td>
+        <td><%=  measure.below_ideal_to %></td>
+        <td><%=  measure.below_ideal_score %></td>
+        <td><%=  measure.below_ideal_comment %></td>
+      </tr>
+      <% end %>        
+      </tr>
+
+    </tbody>
+  </table>
+
+</div>

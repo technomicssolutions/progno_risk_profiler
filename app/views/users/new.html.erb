@@ -1,0 +1,45 @@
+<%=form_for @user  do |f| %>
+
+<h5> Personal</h5>
+	<div>
+		<div >
+			<%= f.label :first_name, "First Name" %>
+			<%= f.text_field :first_name %>
+		</div>
+
+		<div>
+			<%= f.label :second_name, "Second Name" %>
+			<%= f.text_field :second_name %>
+		</div>
+		<div>
+			<%= f.label :date_of_birth, "Date Of Birth" %>
+			<%= f.select_date :date_of_birth , :start_year =>1950 %>
+		</div>
+		<div>
+			<%= f.label :address_1, "Adrress"%>
+			<%= f.text_area :address_1%>
+		</div>
+
+	</div>
+
+<h5> Professional</h5>
+	<div>
+		<div >
+			<%= f.label :company_name, "Company Name" %>
+			<%= f.text_field :company_name %>
+		</div>
+
+		<div>
+			<%= f.label :company_address, "Comapny Addrress" %>
+			<%= f.text_field :second_name %>
+		</div>
+
+		<div>
+			<%= f.label :designation, "designation" %>
+			<%= f.text_field :designation %>
+		</div>
+	</div>
+
+<%= f.submit%>
+
+<% end -%>

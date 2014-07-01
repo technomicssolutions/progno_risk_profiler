@@ -1,0 +1,112 @@
+<%= wicked_pdf_stylesheet_link_tag "application"%>
+<%= wicked_pdf_javascript_include_tag "application"%>
+<style>
+#res
+{
+  width: 100%;
+}
+#graph_disclaimer
+  {
+    margin-top: 25px;
+  }
+#graphs
+{
+  float: left;
+  width: 100%;
+  clear: both;
+
+  //page-break-after: always;
+}
+  #print_num
+  {
+    float: left;
+    width: 25%%;
+    margin: 0px;
+    padding: 0px;
+  }
+  #print_pie
+  {
+
+    float: left;
+    width: 25%;
+    margin: 0px;
+    padding: -20% 0 0 -20%;
+    z-index: 1;
+  }
+  #print_bar
+  {
+
+    float: left;
+    width: 25%;
+    margin: 0px;
+    padding: -20% 0 0 -20%;
+    z-index: 1;
+  }
+  #print_txt
+  {
+    float: left;
+    width: 25%;
+    margin: 0px;
+    padding: 0px;
+    z-index: 2;
+  }
+  #graphs_labels li
+  {
+    list-style-type: none;
+    float: left;
+    width: 25%;
+  }
+  #print_label_middle
+  {
+    float: left;
+    width: 20%;
+  }
+  #print_label_edge
+  {
+    float: left;
+    width: 30%;
+  }
+</style>
+<div id="fulres">
+<div class="export">
+  <%= button_to "Save to User", advisor_save_asset_allocation_path(:portfolios=>@best_in_time_horizon), class:"btn btn-success", method:'post' %>
+</div>
+
+<div id="fulres" >
+  <h1>Asset Allocation Strategy for <%= @client.user_detail.full_name %></h1><%= Time.now.to_date %>
+</div>
+
+<div id="fulres">
+  Based on your risk tolerance test you are assessed to have MODERATE risk profle. The following are the asset allocation strategies for various time horizons for your risk profile. The risk associated with high risk asset classes like equity will reduce considerable over a long time period and hence the allocation towards high risk asset classes will be higher for long term time horizons expecting higher returns. You should first allocate your  investments towards each goal. Then based on the time horizon to reach the goal allocate the investments set aside for the goal as per the asset allocation strategy for the goal.The periodic risk graph denotes the expected risk of the asset allocation for the short periods within the specified time horizon. This will help understand the short term risk associated with a strategy aimed at long term time horizon.
+</div>
+
+<div id="fulres">
+<div id="graphs_labels">
+  <li id="print_label_edge"><b>Time Horizon</b></li>
+  <li id="print_label_middle"><b>Asset Allocation</b> </li>
+  <li id="print_label_middle"><b>Portfolio Description</b></li>
+  <li id="print_label_edge"><b>Periodic Risk</b> </li>
+</div>
+
+<% 0..@count.times do |iteration| %>
+  <div id="graphs">
+    <div id="print_num"><%= iteration+1 %>Year</div>
+    <div id="print_pie"><%= high_chart("pie_chart_#{iteration}", @pie_chart[iteration]) %></div>
+    <div id="print_txt">The expected return for this asset allocaton is <%= @portfolio_details[iteration].risk %>% p.a. The risk for this is about <%= @portfolio_details[iteration].return %>%. This asset allocation is for a investment time horizon of <%= iteration +1 %> year based on your risk tolerance level</div>
+    <div id="print_bar"><%= high_chart("bar_graph_#{iteration}", @bar_graph[iteration]) %></div>
+  </div>
+
+<% end %>
+</div>
+<div id="graph_disclaimer">
+  <br><br>
+  The strategies are recommended based on a computer model developed by Progno Financial Planning Systems Pvt. Ltd. To know about the assumptions used like expected return from each asset class and risk the method used for calculations, please refer to the latest version of the white paper "Time horizon based Asset  Allocation Strategies". As days go by new market data is added, there could be slight changes in the long term strategies and bigger variations in short term strategies. Accordingly you may have to review your asset allocation. As the questionnaire asks a few questions only it is not fully capable of assessing your individual financial situation and your exact investment behaviour. The system does not study your investment need, its priority and its importance in your  life. A detailed study of your situation and needs could substantially alter the recommendations. Therefore the asset allocations recommended are at a macro level and you  should consult your financial planner for a detailed study of your current situation and needs to arrive at the most  appropriate asset allocation.
+</div>
+
+<div class="export">
+  <%= link_to "Download pdf", "/advisor/asset_allocation/#{@client.user_detail.full_name}", class:'btn btn-success' %>
+  <br><br>
+  <%= link_to "Download excel", "/advisor/asset_allocation/download_excel", class:'btn btn-success' %>
+  <br><br>
+</div>
+</div>

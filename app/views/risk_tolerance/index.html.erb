@@ -1,0 +1,30 @@
+<ul class="nav nav-tabs">
+      <li class="active"><a href="/admin/investment/risk_tolerance/" >Risk Tolerance Levels</a></li>
+      <li><a href="/admin/investment/risk_tolerance/preview">Preview</a></li>
+    </ul>
+
+<div class="content">
+	<div id="new_rta_level">
+
+	</div>
+
+	<%= new_rta_level %>
+	<div class="rta_levels">
+		<div class="rta_levels_heading">
+			<li>From</li>
+			<li>To</li>
+			<li>Level</li>
+			<li>Action</li>
+		</div>
+
+		<div class="rta_levels_values">
+			<% @risk_tolerance_level.each do |rta| %>
+				<li><%= rta.from_value %></li>
+				<li><%= rta.to_value %></li>
+				<li><%= rta.level %></li>
+				<li><%= edit_rta(rta) %> | <%= delete_rta(rta) %></li>
+			<% end %>
+		</div>
+	</div>
+
+</div>

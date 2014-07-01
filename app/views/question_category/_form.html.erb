@@ -1,0 +1,18 @@
+<div class = "whole_faq_div">
+	<%= form_for @question_category,:html=> {:multipart => true} , url:{action:@action}, method:'post'  do |f| %>
+		<%= f.hidden_field :id %>
+		<div class = "frequently_asked_question_field">
+			<%= f.label :name %>
+			<%= f.text_field :name, :class => "span6" %>
+		</div>
+		<div class = "frequently_asked_question_field">
+			<%=f.label :image %>
+			<%= f.file_field :image %>
+		</div>
+		<div class = "actions">
+			<%= f.submit%>
+		</div>
+	<%end%>
+</div>
+
+

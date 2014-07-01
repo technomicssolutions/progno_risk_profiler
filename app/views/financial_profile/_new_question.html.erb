@@ -1,0 +1,18 @@
+<%= tinymce_assets %>
+<div>
+<%= form_for @financialProfileQuestion, url: {controller:'financial_profile',action:'create'}, action:'POST' do |f| -%>
+<div>
+  <%= f.label :question, "Question" %>
+  <%= f.text_area :question, size: "50x5" ,:class=>"span6 tinymce"%>
+</div>
+<div>
+  <%= f.label :name, "Map Variable" %>
+  <%= f.collection_select :map_variable_id, @map_variable, :id , :name %>
+</div>
+<div>
+  <%= f.submit "Submit", :disable_with => 'Submiting...' %>
+</div>
+
+<% end -%>
+</div>
+<%= tinymce %>

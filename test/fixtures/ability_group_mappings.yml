@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  ability_id: 1
+  user_group_id: 1
+
+two:
+  ability_id: 1
+  user_group_id: 1

@@ -1,0 +1,30 @@
+<div id="stats">
+	<li id="rta_reports_stats_label">Score</li>
+	<li id="rta_reports_stats_label">Behaviour</li>
+	<li id="rta_reports_stats_label">Financial</li>
+	<li id="rta_reports_stats_label">Total</li>
+	<li id="rta_reports_stats_label">Risk Level</li>
+
+	<li id="rta_reports_stats_value">Maximum</li>
+	<li id="rta_reports_stats_value"><%= $max_behaviour_score %></li>
+	<li id="rta_reports_stats_value"><%= $max_financial_score %></li>
+	<li id="rta_reports_stats_value"><%= $max_total %></li>
+	<li id="rta_reports_stats_value">&nbsp;</li>
+
+	<li id="rta_reports_stats_value">current</li>
+	<li id="rta_reports_stats_value"><%= $behaviour_score %></li>
+	<li id="rta_reports_stats_value"><%= @score %></li>
+	<li id="rta_reports_stats_value"><%= $total_score %></li>
+	<li id="rta_reports_stats_value"><%= @rta_level %></li>	
+
+
+	
+
+</div>
+<div class="report_comments">
+		<% $comments.each do |array| %>
+		<% array.each do |message| %>
+	  	<li id="reports_final_comments"> <%= message.html_safe %> </li>
+		<% end %>
+		<% end %>
+</div>

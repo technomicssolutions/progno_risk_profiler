@@ -1,0 +1,73 @@
+<div class="whole_detail_div">
+
+<div>
+		<ul class ="nav nav-tabs">
+			<%if check_admin%>
+				<li ><a href="/admin/dashboard"> DashBoard </a></li>
+			<%else%>	
+				<li ><a href="/users/home "> DashBoard </a></li>
+			<%end%>	
+			<li><a href="/users/invite">Invitation </a></li>
+			<li class="active"><a href="/users/profile">Profile</a>  </li>
+		</ul>
+	</div>	
+	<div>
+
+	<ul class="nav nav-tabs">
+		<li class="active"><a href="#tab1" data-toggle="tab">Personal</a></li>
+		<li><a href="#tab2" data-toggle="tab">Professional</a></li>
+	</ul>
+	<div class="tab-content">
+		<div class="tab-pane active" id ="tab1" >
+			<div class="index_contents">
+				<div class="span10 well">
+					<div class="row">
+						<div class="span1">
+							<%if @user_details.blank?%>
+							<%else%>
+								<%if @user_details.image_remote_url.blank?%>
+									<%= image_tag (@user_details.image.url) ,:size => "120x120" %>
+								<%else%>
+									<%= image_tag (@user_details.image_remote_url) ,:size => "120x120" %>
+								<%end%>
+							<% end %>
+						</div>
+						<div class="span3" id="user_profiles">
+							<%if @user_details.blank?%>
+							<%else%>
+							<li>First Name: <%= @user_details.first_name %></li>
+							<li>Second Name: <%= @user_details.second_name %></li>
+							<li>Date Of Birth: <%= @user_details.date_of_birth.to_s(:long) if @user_details.date_of_birth %></li>
+							<li>Address:<%= @user_details.try(:address) %></li>
+							<span class=" badge badge-info">Points via invitation : <%= @user.user_points ? @user.user_points : 0 %></span>
+							<%end%>
+							<div style="margin-top:20px;">
+								<li><%= button_to "Edit", users_profile_edit_personal_path(:id => @user.id),:method =>"get" ,:class=>"btn btn-primary"%></li>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>	
+		</div>
+	<div class="tab-pane fade" id = "tab2">
+		<div class="index_contents">
+			<div class="span10 well">
+				<div class="row">
+					<div class="span3" id="user_profiles">
+						<%if @user_details.blank?%>
+						<%else%>
+						<li>Company Name : <%= @user_details.company_name %></li>
+						<li>Company Details : <%= @user_details.company_details %></li>
+						<li>Designation : <%= @user_details.designation %> </li>
+						<div style="margin-top:20px;">
+							<%= button_to "Edit", users_profile_edit_professional_path(:id => @user.id),:method =>"get" ,:class=>"btn btn-primary"%>
+						</div>
+						<%end%>
+					</div>	
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+

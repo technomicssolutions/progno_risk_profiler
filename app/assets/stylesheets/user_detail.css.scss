@@ -1,0 +1,175 @@
+// Place all the styles related to the detail controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#resend_emails li{
+    line-height: 40px;
+}
+
+.whole_detail_div {
+	background-color: #F2F2F2 ;
+	overflow: hidden;
+	width: 130%;
+}
+
+.detail_field {
+	padding-left: 10px;
+	padding-bottom: 25px;
+	border-bottom: 1px solid #D8D8D8;
+	border-top: 1px solid #D8D8D8;
+
+ }
+
+.user_points {
+    padding-left: 10px;
+    margin-left: 15px;
+    padding-bottom: 10px;
+ }
+.bulk_invites_form{
+    padding-left: 20px;
+    margin-left: 20px;
+    list-style-type: none;
+}
+
+.bulk_invites_form li{
+    float: left;
+    width: 50%;
+}
+
+.index_contents{
+    padding-left: 20px;
+    margin-left: 20px;
+}
+.invite_detail_field_pending {
+	width: 30%;  
+    float: left;  
+    list-style-type: none;
+    text-align: justify;
+    padding-left: 15px;    
+ }
+
+#invite_more{
+    list-style-type: none;
+    display: inline;
+}
+
+#invite_more_details {
+    margin-top: 30px;
+}
+
+#invite_more_details li{
+    float: left;
+    width: 50%;
+}
+.invite_category_heading{
+    border-bottom: 4px solid;
+    border-color: #FFF;
+    padding-left: 20px;
+
+}
+
+.invite_detail_field_accepted {
+    width: 30%;   
+    float: left;  
+    text-align: justify;
+    border-color: #F2F2F2;
+    padding-left: 15px;
+    list-style-type: none;
+}
+
+.invite_detail_field_rejected {
+    width: 30%;  
+    text-align: justify;
+    background-color: #E6E6E6;  
+    padding-left: 15px;
+    float: left;
+    list-style-type: none;
+}
+
+.invite_detail_field_accepted:hover{
+	border-color:#6E6E6E;
+    background-color:#E6E6E6;
+}
+
+.invite_detail_field_pending:hover{
+    border-color:#6E6E6E;
+    background-color:#E6E6E6;
+}
+
+.invite_detail_field_rejected:hover{
+    border-color:#6E6E6E;
+    background-color:#E6E6E6;
+}
+
+.edit_div {
+
+}
+
+.image_field{
+
+}
+
+.resend{
+    padding-left: 55px;
+    background-color: #F2F2F2;
+}
+
+.detail_field:hover {
+ border-color:#6E6E6E;
+ background-color:#E6E6E6;
+}
+
+.pending_invites{
+	width: 30%;  
+    margin-left:23px;
+    margin-bottom: 15px;
+    height: 350px;
+    background-color: #E6E6E6;  
+    float: left;  
+    border-right: 4px solid;
+    border-color: #F2F2F2;
+    text-align: center;
+}
+
+.accepted_invites{
+    width: 30%;   
+    height: 350px;
+    background-color: #E6E6E6;  
+    float: left;  
+    border-right: 4px solid;
+    margin-bottom: 15px;
+    text-align: justify;
+    border-color: #F2F2F2;
+    text-align: center;
+
+}
+.rejected_invites{
+	width: 30%;  
+    text-align: justify;
+    height: 350px;
+    margin-bottom: 15px;
+    background-color: #E6E6E6;  
+    float: left;
+    text-align: center;
+}
+
+.invite_datas:hover{
+    
+    margin-left: 10px; 
+    padding-left: 20px; 
+}
+
+.datatable{
+    padding: 2px;
+    width :500px;
+    margin-left :10px;
+    padding :10px;
+}
+
+.invite_datas{
+    text-align: center;
+    margin-left: 10px;
+    padding-left: 20px; 
+}
+
+

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  main_asset_class: MyString
+  sub_asset_class: MyString
+  benchmark: MyString
+
+two:
+  main_asset_class: MyString
+  sub_asset_class: MyString
+  benchmark: MyString

@@ -1,0 +1,25 @@
+<div class = "whole_faq_div">
+<%= form_for @frequently_asked_question, :url => {:action => @action}  do |f| %>
+<%=f.hidden_field :id%>
+<div class = "frequently_asked_question_field">
+	<%= f.label :question , "Enter the Question" %>
+	<%= f.text_field :question, :class => "span4" %>
+</div>
+
+<div class = "frequently_asked_question_field">
+	<%= f.label :answers, "Answer" %>
+	<%= f.text_area :answers , :class => "span4" ,:size=>"10x5" %>
+</div>
+
+<div class = "frequently_asked_question_field">
+	<%= f.label :publish , "publish"%>
+	<%= f.check_box :publish %>
+</div>
+<div class = "frequently_asked_question_field">
+	<%= f.collection_select :category_id, @question_category, :id, :name %>
+</div>
+
+<div class = "actions"> <%=f.submit%></div>
+<%end%>
+
+</div>

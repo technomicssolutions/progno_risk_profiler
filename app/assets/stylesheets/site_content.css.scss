@@ -1,0 +1,65 @@
+// Place all the styles related to the SiteContent controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.main_box {
+
+}
+
+.site_content{
+	float: right;
+	width: 79%;
+	margin: 1px solid black;
+}
+
+.sidebar {
+	float: left;
+	width: 19%;
+	margin: 1px solid black;
+}
+
+.page {
+	padding-bottom: 20px;
+}
+
+#url {
+	list-style-type: none;
+}
+
+#page_links {
+	list-style-type: none;
+	float: left;
+	width: 50%;
+}
+
+#page_status {
+	list-style-type: none;
+	float: left;
+	width: 50%;
+}
+
+#page_content {
+	list-style-type: none;
+}
+
+#read_more {
+	list-style-type: none;
+	font-weight: bold;
+	font-style: italic;
+}
+
+.form {
+
+}
+
+.form_label{
+
+}
+
+.form_field {
+
+}
+
+.submit {
+
+}

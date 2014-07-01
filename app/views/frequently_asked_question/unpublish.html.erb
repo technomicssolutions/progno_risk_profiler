@@ -1,0 +1,32 @@
+<div class = "whole_faq_div">
+<div>
+<ul class ="nav nav-tabs">
+	<li><a href="/admin/cms/faq">FAQ Home</a></li>
+	<li><a href="/admin/cms/faq/new">Add Question </a></li>
+	<li class = "active"><a href="/admin/cms/faq/unpublish"> Unpublished Questions </a> </li> 
+	<li><a href="/admin/cms/faq/category"> Category List</a>  </li>
+</ul>
+</div>
+
+<div class ="faq_table">
+<table class = "bottomBorder" width ="50%">
+		<tr>
+		<th align = "left"> <h5>Content</h5> </th>
+		<th align ="center"> <h5>Category</h5> </th>
+		<th align = "right"> <h5>Actions</h5> </th>
+		</tr>
+	<% @frequently_asked_questions.each do |q| %>
+	<tr class = "<%= cycle('even','odd')%>" >
+
+	<td align ="left"> <%= "Q.) "+q.question %><br> <p> <%= sanitize(q.answers) %> </p> </td>
+
+	<td align ="center"> <%= display_category_name(q.category_id)%> </td>
+
+	<td align = "right"><%= edit_faq_question(q)%> | <%= destroy_faq_question(q) %></td>
+	</tr>
+	<% end %>			
+	
+</table>
+</div>
+</div>
+

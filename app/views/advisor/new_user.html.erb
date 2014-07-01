@@ -1,0 +1,15 @@
+<%= form_for @user ,url:{action:'create_user'} do  |f| %>
+
+	<%= f.fields_for :user_detail do |build| %> 
+
+		<%= render 'personal_detail' , f:build %>
+
+	<%end%>
+	<%= f.label :email, "Email Id" %>
+	<%= f.email_field :email %>
+
+	<%= f.fields_for :user_detail do |build| %>
+		<%= render 'location_detail' , f:build %>
+	<%end%>
+	<%= f.submit "Submit", :disable_with => 'Submiting...',:class => "btn btn-success" %>
+<%end%>		

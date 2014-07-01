@@ -1,0 +1,31 @@
+<ul class="nav nav-tabs">
+  <li><a href="/admin/investment/portfolio_group/" >Set Asset Allocation</a></li>
+  <li><a href="/admin/investment/portfolio_group/efficient_frontier" >Efficient Frontier</a></li>
+  <li><a href="/admin/investment/portfolio_group/periodic_risk" >Periodic Risk</a></li>
+  <li class="active"><a href="/admin/investment/portfolio_group/portfolios" >Status</a></li>
+</ul>
+
+<div>
+	<table cellpadding="0" cellspacing="0" border="1px" class="table table-striped table-bordered" id="example" width="900px;">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Time Horizon</th>
+				<th>Status</th>
+				<th>Options</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @portfolio_groups.each do |portfolio| %>
+				<tr>
+					<td><%= portfolio.id %></td>
+					<td><%= portfolio.name %></td>
+					<td><%= portfolio.time_horizon %></td>
+					<td><%= get_status(portfolio) %></td>
+					<td><%= portfolio_status(portfolio) %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>

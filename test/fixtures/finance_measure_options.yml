@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  above_ideal_from: 1
+  above_ideal_to: 1
+
+two:
+  above_ideal_from: 1
+  above_ideal_to: 1

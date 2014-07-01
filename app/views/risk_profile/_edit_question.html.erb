@@ -1,0 +1,13 @@
+<%= tinymce_assets %>
+<%= form_for @risk_question, url:{action:'update_question',controller:'risk_profile'},method:'post' do |f| -%>
+
+  <%= f.label :risk_qustion, "Qustion" %>
+  <%= f.text_area :risk_question,size:"50x5",class:"span9 tinymce" %>
+  <%= f.hidden_field :id %>
+
+	</div>
+
+	<%= f.submit "Update", :disable_with => 'Updating...' %>
+
+<% end -%>
+<%= tinymce %>

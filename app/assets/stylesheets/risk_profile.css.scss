@@ -1,0 +1,239 @@
+// Place all the styles related to the riskprofile controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.risk_profile_trial_questionaire{
+	float: left;
+	width: 60%;
+}
+
+#risk_profile_trial_questionaire_results{
+	float: right;
+	width: 40%;
+	display: none;
+}
+
+#risk_profile_trial_questionaire_results_comments{
+	
+
+	border: 1px solid black;
+
+
+}
+
+.content{
+
+}
+
+.question_set {
+	border-bottom: 1px solid black;
+}
+.question_fields {
+	padding-top: 20px;
+}
+
+.questions {
+}
+
+.question_values {
+	float: left;
+	width: 70%;	
+}
+
+.question_links{
+	float: right;
+	width: 30%;
+}
+
+ul #questions{
+	margin: 0px;
+}
+.question_values li {
+	float: left;
+	list-style-type: none;
+}
+
+.question_links li {
+	float: left;
+	list-style: none;
+}
+
+.options_fields{
+	display: inline;
+}
+
+.options_fields_headings li{
+	width: 25%;
+	font-weight: bold;
+	list-style: none;
+	display: inline;
+	position:relative;
+	float:left;
+	text-align:center;
+	margin-bottom:1px;
+}
+
+.options_fields li{
+	list-style-type: none;
+	float: left;
+	width: 25%;
+	text-align: left;
+}
+
+
+.options {
+	float: left;
+	width: 25%;
+	position: relative;
+}
+
+.options li {
+	float: left;
+	width: 25%;
+	list-style: none;
+}
+
+.scores{
+	float: left;
+	width: 25%;
+}
+.scores li {
+	width: 25%;
+	float: left;
+	margin-left: 25%;
+	list-style: none;
+}
+
+.comments{
+	float: left;
+	position: relative;
+}
+
+.comments li {
+	width: 25%;
+	float: left;
+	float: right;
+	list-style: none;
+}
+
+.options_links{
+	float: left;
+	width:  25%;
+	position: relative;
+}
+.options_links li {
+	float: left;
+	width: 25%;
+	list-style: none;
+}
+
+.riskprofiles{
+	margin-bottom: 20px;
+}
+
+.riskprofiles li {
+	display: inline;
+	list-style-type: none;
+	float: left;
+	width: 33%;
+	border: 1px solid black;
+}
+
+.questions_trial {
+	margin-bottom: 30px;
+}
+
+#trial_question {
+	list-style-type: none;
+	width: 100%;
+	font-weight: bold;
+}
+
+#trial_option {
+	list-style-type: none;
+	display: inline;
+	width: 50%;
+height:50px;
+	float: left;
+}
+
+
+.risk_profile_reports_stats {
+	margin-bottom: 2%;
+	border: 1px solid black;
+}
+
+#risk_profile_reports_stats{
+	list-style-type: none;
+	float: left;
+	width: 25%;
+}
+
+#behvior_question {
+	float: left;
+	list-style-type: none;
+	width: 70%;
+}
+
+#behavoir_question_links{
+	float: right;
+	list-style-type: none;
+	width: 30%;
+}
+
+#behavior_options_heading {
+	list-style-type: none;
+	float: left;
+	width: 25%;
+	font-weight: bold;
+}
+
+
+#behavior_options_heading_left {
+	list-style-type: none;
+	float: left;
+	width: 25%;
+	font-weight: bold;
+	//border-left: 1% solid black;
+}
+
+#behavior_options_heading_right {
+	list-style-type: none;
+	float: left;
+	width: 25%;
+	font-weight: bold;
+	//border-left: 1% solid black;
+}
+
+#behavior_options_value {
+	list-style-type: none;
+	float: left;
+	width: 25%;
+	border-bottom: 1px solid black;
+}
+
+.question_fields{
+	//border: 1px solid black;
+}
+
+.question_box {
+	//border: 1px solid black;
+}
+
+.question_fields li{
+	list-style-type: none;
+}
+
+#behavior_question_list{
+	margin: 1%;
+}
+
+.content_div{
+	background-color: #fff;
+	
+}
+
+#sequence_change {
+	padding: 50px;
+}

@@ -1,0 +1,49 @@
+<script>
+  $(function() {
+    $( "#datepicker" ).datepicker({
+      changeMonth: true,
+      changeYear: true,
+      dateFormat: "yy-mm-dd",
+      yearRange: '1900:2050'
+    });
+  });
+  </script>
+
+  <%= form_for @rolling_time_period, url:{action:@action,controller:'asset_class'}, method:'POST' do |f| -%>
+    
+    <%= f.hidden_field :id %>
+    <div id="rolling_period_form_fields">
+          
+      <li id="label">
+        <%= f.label :rolling_period_added, "Rolling Time Period" %>
+      </li>
+
+      <li id="field">
+        <%= f.text_field :rolling_period_added %>
+      </li>
+
+      <li id="label">
+        <%= f.label :data_unit, "Data Unit" %>
+      </li>
+      <li id="field">
+        <%= f.select :data_unit, %w[Day Month Year]%>
+      </li>
+
+      <li id="label">
+        <%= f.label :return_units_no, "No of Returns Unit " %>
+      </li>
+      <li id="field">
+        <%= f.text_field :return_units_no %>
+      </li>
+
+      <li id="label">
+        <%= f.label :end_date, "End Date" %>
+      </li>
+      <li id="field">
+        <%= f.text_field :end_date, :id => 'datepicker' %>
+      </li>
+    </div>
+    <div>
+      <%= f.submit "Submit", :disable_with => 'Submiting...' %>
+    </div>
+  <% end -%>

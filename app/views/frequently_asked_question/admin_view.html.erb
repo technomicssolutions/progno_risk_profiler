@@ -1,0 +1,28 @@
+<style> 
+	ul 
+{
+list-style:square url("sqpurple.gif");
+}
+</style>
+
+
+<div class = "whole_faq_div" >
+	<% @frequently_asked_questions.each do |f| %>
+		<div class = "faq_question_field">
+			<ul>
+					<li><b><%= f.question%> </b> </li>
+					<p align = "right"><%=  edit_faq_question(f) %> | <%= destroy_faq_question_from_category(f) %></p>
+			</ul>
+		</div>
+
+		<div class = "faq_answer_field" >
+			<ul>
+ 				<p align = "left"><b> <%= sanitize(f.answers) %> </b> </p>
+
+			</ul>	
+		</div>
+
+
+	<% end -%> 
+	<h6><%= link_to "Back To Home" , admin_cms_faq_path %><h6>
+</div>

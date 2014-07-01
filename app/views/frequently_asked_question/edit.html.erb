@@ -1,0 +1,5 @@
+<h1> Editing Questions and answers </h1>
+<%@action = "update" %>
+
+<%= render 'form' , :locals => {:action => @action} %>
+<%= link_to 'back' , admin_cms_faq_path %>

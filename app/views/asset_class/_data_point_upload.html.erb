@@ -1,0 +1,8 @@
+<h4> Upload Data Points for <%= "#{@asset_class.main_asset_class}" %> </h4>
+<br>
+<%= form_for @asset_class, url: {action:'file_update', controller:'asset_class'}, method:'POST', :html => { :multipart => true } do |f| -%>
+
+	<%= f.file_field :data_points %>
+	<%= f.submit "Submit", :disable_with => 'Submiting...' %>
+	<%= f.hidden_field :id %>
+<% end -%>

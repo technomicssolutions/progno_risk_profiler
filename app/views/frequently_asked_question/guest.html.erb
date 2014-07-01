@@ -1,0 +1,11 @@
+<div class = "whole_faq_div">
+	<h4> Frequently Asked Questions</h4>
+		<% @question_category.each do |f| %>
+			<body>
+			<div style ="float: left;" id ="category_content" align ="center">
+			 <br> <%= link_to (image_tag(f.image.url,:size =>"48x48") + f.name ).html_safe, 
+			faq_show_path(:cat => f.id)	%>
+			</div>
+	</body>	
+	<% end -%>
+</div>	

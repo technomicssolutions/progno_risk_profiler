@@ -1,0 +1,17 @@
+<div>
+	<li id="reports_stats_label">Total Questions</li>
+	<li id="reports_stats_value"><%= @total_questions_count %></li>
+	<li id="reports_stats_label">Maximum Score</li>
+	<li id="reports_stats_value"><%= @maximum_score %></li>
+	<li id="reports_stats_label">Current Score</li>
+	<li id="reports_stats_value"><%= @comments[1] %></li>
+</div>
+<br> <br>
+
+<div class="report_comments">
+    <% @comments[0].each_with_index do |message,index| %>
+      <% if index.even? %>
+	  	  <li id="reports_final_comments" style="list-type:none"> <%= message %> </li>
+      <% end %>
+		<% end %>
+</div>

@@ -1,0 +1,35 @@
+<div class ="advisor_personal_detail_field">
+	<%= f.label :first_name, "First Name" %>
+	<%= f.text_field :first_name %>
+</div>
+<div class ="advisor_personal_detail_field">
+	<%= f.label :second_name, "Second Name" %>
+	<%= f.text_field :second_name %>
+</div>
+<div class ="advisor_personal_detail_field">
+	<%= f.label :gender, "Gender" %>
+	<ul id="gender">
+		<li><%= f.radio_button :gender , 'Male' ,  checked: true %>Male</li>
+		<li><%= f.radio_button :gender , 'Female' %>Female</li>
+	</ul>
+</div>
+<div class ="advisor_personal_detail_field" >
+	<%= f.label :date_of_birth, "Date Of Birth" %>
+	<%= f.text_field :date_of_birth , :id => 'datepicker'%>
+</div>
+<div class ="advisor_personal_detail_field">
+	<%= f.label :marital_status, "Martial Status" %> 
+	<ul id="marital_status">
+		<li><%= f.radio_button :marital_status , 'Single' ,checked:true %>Single</li>
+		<li><%=f.radio_button :marital_status , 'Married' %>Married</li>
+		<li><%= f.radio_button :marital_status , 'Widower' %>Widow(er)</li>
+	</ul>
+</div>
+<div class ="advisor_personal_detail_field">
+	<%= f.label :designation, "Occupation" %>
+	<%= f.text_field :designation %>
+</div>
+<div class ="advisor_personal_detail_field">
+	<%= f.label :phone, "Phone" %>
+	<%= f.text_field :phone %>
+</div>
