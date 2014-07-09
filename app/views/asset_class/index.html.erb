@@ -18,27 +18,30 @@
 		</div>
 		
 		<div id="asset-headings">
-			<div id="asset-heading">Main Asset Class</div>
-			<div id="asset-heading">Sub Asset Class</div>
-			<div id="asset-heading">Benchmark</div>
-			<div id="asset-heading">Actions</div>	
+			<div class="asset-heading">Main Asset Class</div>
+			<div class="asset-heading">Sub Asset Class</div>
+			<div class="asset-heading">Benchmark</div>
+			<div class="asset-heading_action">Actions</div>	
 		</div>
 
 	
 	<% @asset_classes.each do |asset_class| %>
 		<div id="asset_class_content">
-			<div id="asset_content_values">
+			<div class="asset_content_values">
 				<%= asset_class.main_asset_class.blank? ? '&nbsp;'.html_safe : asset_class.main_asset_class %>
 			</div>
-			<div id="asset_content_values">
+			<div class="asset_content_values">
 				<%= asset_class.sub_asset_class.blank? ? '&nbsp;'.html_safe  : asset_class.sub_asset_class %>
 			</div>
-			<div id="asset_content_values">
+			<div class="asset_content_values">
 				<%= asset_class.benchmark.blank? ? '&nbsp;'.html_safe : asset_class.benchmark %> 
 			</div>
-			<div id="asset_content_values">
+			<div class="asset_content_values_action">
 				<div id="asset_content_upload">
 					<%= link_to 'Upload',"/admin/investment/asset_class_file/#{asset_class.id}" , :remote=> true%>
+				</div>
+				<div id="process_data_points">
+					<%= link_to 'Process Data Points',"/admin/investment/asset_class/process_file_data_points/#{asset_class.id}"%>
 				</div>
 				<div id="asset_content_links">
 	  			<%= edit_asset_class(asset_class.id)%> / <%= delete_asset_class(asset_class.id) %> / <%= flush_asset_class(asset_class.id) %>

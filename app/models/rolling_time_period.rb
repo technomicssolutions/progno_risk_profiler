@@ -1,7 +1,8 @@
 class RollingTimePeriod < ActiveRecord::Base
   attr_accessible :asset_class_id, :data_unit, :end_date, :return_units_no, :rolling_period_added, :start_date
-  has_many :rolling_period_mean
-  has_many :rolling_period_correlation
+  has_many :rolling_period_mean, :dependent => :destroy
+  has_many :rolling_period_correlation, :dependent => :destroy
+  validates_presence_of :end_date
 
   def asset_allocation
     asset_allocation_id = self.rolling_period_added.to_s
@@ -55,13 +56,13 @@ class RollingTimePeriod < ActiveRecord::Base
         ds=dataset.to_dataset
         cm=Statsample::Bivariate.correlation_matrix(ds)
         z = 0
-        RollingPeriodCorrelation.delete_all(:rolling_period_id => self.id)
+        RollingPeriodCorrelation.delete_all(:rolling_time_period_id => self.id)
 
         asset_class_order.each do |key_1,value_1|
           j=0
           asset_class_order.each do |key_2,value_2|
             a = RollingPeriodCorrelation.new
-            a.rolling_period_id = self.id
+            a.rolling_time_period_id = self.id
             a.asset_class_item_one_id =z
             a.asset_class_item_two_id =j
             a.corelations = cm.rows[z][j]

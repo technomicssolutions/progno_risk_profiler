@@ -1,8 +1,8 @@
 class AssetClass < ActiveRecord::Base
   @data_end_of_each_month
 
-  has_many :asset_datas
-  has_many :rolling_year_datas
+  has_many :asset_datas, :dependent => :destroy
+  has_many :rolling_year_datas, :dependent => :destroy
   attr_accessible :benchmark, :main_asset_class, :sub_asset_class, :data_points,:no_of_days,:no_of_months,:no_of_years,
     :mean_1, :mean_2, :mean_3, :mean_4, :mean_5, :mean_6, :mean_7, :mean_8, :mean_9, :mean_10,
     :stad_deviation_1,:stad_deviation_2,:stad_deviation_3,:stad_deviation_4,:stad_deviation_5,:stad_deviation_6,:stad_deviation_7,:stad_deviation_8,:stad_deviation_9,:stad_deviation_10
@@ -15,40 +15,52 @@ class AssetClass < ActiveRecord::Base
     day = 0
     year =  Hash.new
     month = Hash.new
-    data = CSV.read(Rails.root.join("public#{self.data_points.url.split('?')[0]}"))
+    puts "url"
+    puts self.data_points
+    begin
+      data = CSV.read(Rails.root.join("public#{self.data_points.url.split('?')[0]}"))
+    rescue Exception => e
+      return ["Please upload a datafile"]
+    end    
     date = get_date data[0][0]
     old_data_point = data[0][1]
-    @data_end_of_each_month = Hash.new
-    save_data_point(date[:time_object],old_data_point,upload_time)
-    first = date[:time_object]
-    year["#{date[:date_object].year}"] = true
-    month["#{date[:date_object].month}X#{date[:date_object].year}"] = true
-    data.delete_at(0)
-    data.uniq!
-    old = date[:date_object]
-    today = 0
-    data.each do |line|
-      today = get_date line[0]
-      old = old.next
-      if old != today[:date_object] then
-        while old != today[:date_object]
-          save_data_point old.to_time,old_data_point,upload_time
+    if old_data_point.blank? then
+      ["Uploaded data is not valid"]
+    else
+      @data_end_of_each_month = Hash.new
+      save_data_point(date[:time_object],old_data_point,upload_time)
+      first = date[:time_object]
+      year["#{date[:date_object].year}"] = true
+      month["#{date[:date_object].month}X#{date[:date_object].year}"] = true
+      data.delete_at(0)
+      data.uniq!
+      old = date[:date_object]
+      today = 0
+      data.each do |line|
+        if line.length > 0 && not(line[0].blank?) then
+          today = get_date line[0]
           old = old.next
+          if old != today[:date_object] then
+            while old != today[:date_object]
+              save_data_point old.to_time,old_data_point,upload_time
+              old = old.next
+            end
+            save_data_point old.to_time,line[1],upload_time
+            old_data_point = line[1]
+          else
+            save_data_point today[:date_object],line[1],upload_time
+            old_data_point = line[1]
+          end
+          day += 1      
+          year["#{today[:date_object].year}"] = true unless year.has_key?("#{today[:date_object].year}")
+          month["#{today[:date_object].month}X#{today[:date_object].year}"] = true unless month.has_key?("#{today[:date_object].month}X#{today[:date_object].year}")
         end
-        save_data_point old.to_time,line[1],upload_time
-        old_data_point = line[1]
-      else
-        save_data_point today[:date_object],line[1],upload_time
-        old_data_point = line[1]
       end
-      day += 1      
-      year["#{today[:date_object].year}"] = true unless year.has_key?("#{today[:date_object].year}")
-      month["#{today[:date_object].month}X#{today[:date_object].year}"] = true unless month.has_key?("#{today[:date_object].month}X#{today[:date_object].year}")
+      last_data_set = self.asset_datas.order("ID ASC").last
+      last = last_data_set.date.to_date
+      rolling_daily(first,last)
+      [day,month.length, year.length]
     end
-    last_data_set = self.asset_datas.order("ID ASC").last
-    last = last_data_set.date.to_date
-    rolling_daily(first,last)
-    [day,month.length, year.length]
   end
   
 

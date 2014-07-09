@@ -77,7 +77,9 @@ class UsersController < ApplicationController
       @provider=@auth_info[:provider]
     end
     if @user_details.nil?
-      @user_details=UserDetail.create(:user_id=>current_user.id)
+      @user_details=UserDetail.new
+      @user_details.user_id = current_user.id
+      @user_details.save(validate: false)
       if !session["info"].nil?
         if session["info"][:provider]=="facebook"
           sync_with_fb
@@ -92,28 +94,15 @@ class UsersController < ApplicationController
 
   def edit_personal
     @user = User.find current_user.id
-    puts 'user user_detail'
-    @user_details = UserDetail.find 2
-    puts "@user_detail"
-    puts @user_details.to_yaml
+    @user_details = @user.user_detail
     @auth_info=session["info"]
     if !@auth_info.nil? && !@auth_info.blank?
       @provider=@auth_info[:provider]
     end
     if @user_details.nil?
-      puts "in if user"
-      puts @user.to_yaml
-     #sql = "INSERT INTO user_details (user_id, created_at, updated_at)VALUES(2,'2014-06-27 17:48:39.227951196 +05:30', '2014-06-27 17:48:39.227951196 +05:30')"
-     #ActiveRecord::Base.connection.execute(sql)
       user_details=UserDetail.new
-     
       user_details.user_id = @user.id
-      puts "saving the details"
-      puts user_details
       user_details.save(validate: false)
-      puts "saved "
-      puts "user details all"
-      puts UserDetail.all.count
       @user_details = user_details
     end
     if !session["info"].nil?
@@ -125,14 +114,9 @@ class UsersController < ApplicationController
         sync_with_google
       end
     end
-    puts "user details"
-    puts @user_details.to_yaml
-    puts @user_details.id
   end
 
   def update
-    puts "in update"
-    puts UserDetail.all
     @user_details = UserDetail.find params[:user_detail][:id]
     if @user_details.update_attributes params[:user_detail]
       flash[:notice] = "Succesfully Updated"

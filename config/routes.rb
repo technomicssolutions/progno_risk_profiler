@@ -75,7 +75,7 @@ Progno::Application.routes.draw do
 
   match 'admin/investment/asset_class' => 'asset_class#index'
   match 'admin/investment/asset_class_new' => 'asset_class#new'
-  match 'admin/investment/asset_class_file/:id' => 'asset_class#data_point_upload'
+  match 'admin/investment/asset_class_file/:id' => 'asset_class#data_point_upload'  
   get 'asset_class/correlation'
   post 'asset_class/create'
   post 'asset_class/file_update'
@@ -83,6 +83,8 @@ Progno::Application.routes.draw do
   delete 'asset_class/flush_data/:id' => 'asset_class#flush_data'
   post 'asset_class/edit/:id' => 'asset_class#edit'
   post 'asset_class/update'
+
+  match 'admin/investment/asset_class/process_file_data_points/:id' => 'asset_class#process_file_data_points'
   match 'admin/investment/asset_class/set_time_periods' => 'asset_class#rolling_time_period'
   match 'admin/investment/asset_class/set_time_periods/new' => 'asset_class#rolling_time_period_new'
   match 'admin/investment/asset_class/set_time_periods/create' => 'asset_class#rolling_time_period_create'

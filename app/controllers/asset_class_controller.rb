@@ -17,8 +17,11 @@ class AssetClassController < ApplicationController
   end
 
   def destroy
-    @asset_class = AssetClass.find params[:id]
-    if @asset_class.destroy then
+    RollingPeriodMean.destroy_all(:asset_class_id => params[:id])
+    RollingPeriodCorrelation.destroy_all(:asset_class_item_one_id => params[:id])
+    RollingPeriodCorrelation.destroy_all(:asset_class_item_two_id => params[:id])
+    @asset_class = AssetClass.destroy(params[:id])
+    if @asset_class then
       expire_action :action => :index
       flash[:notice] = "Deleted"
     else
@@ -67,21 +70,32 @@ class AssetClassController < ApplicationController
 
   def file_update
     @asset_class = AssetClass.find params[:asset_class][:id]
+    @asset_class.asset_datas.delete_all
     params[:asset_class].delete("id")
     if params[:asset_class][:data_points].original_filename.split('.')[1] != "csv" then
       flash[:error] = "Kindly upload a CSV file"
-      redirect_to '/admin/investment/asset_class'
     elsif @asset_class.update_attributes params[:asset_class] then
       flash[:notice] = "Saved Sucessfully"
-      count = @asset_class.process_data_points
-      @asset_class.update_attributes(no_of_days: count[0] , no_of_months:count[1],no_of_years:count[2])
+      #count = @asset_class.process_data_points
+      #@asset_class.update_attributes(no_of_days: count[0] , no_of_months:count[1],no_of_years:count[2])
       expire_action :action => :index
-      redirect_to '/admin/investment/asset_class'
     else
       flash[:error] = "@asset_class.errors.full_messages.to_sentence"
     end
     redirect_to '/admin/investment/asset_class'
+  end
 
+  def process_file_data_points
+    @asset_class = AssetClass.find params[:id]
+    @asset_class.asset_datas.delete_all
+    count = @asset_class.process_data_points
+    if count.length == 1 then 
+      flash[:error] = count[0]
+    else
+      @asset_class.update_attributes(no_of_days: count[0] , no_of_months:count[1],no_of_years:count[2])
+      expire_action :action => :index
+    end
+    redirect_to '/admin/investment/asset_class'
   end
 
   def flush_data
@@ -148,6 +162,8 @@ class AssetClassController < ApplicationController
   end
 
   def rolling_time_period_delete
+    RollingPeriodCorrelation.destroy_all(:rolling_time_period_id => params[:id])
+    PortfolioGroup.destroy_all(:rolling_time_period_id => params[:id])
     @rolling_time_period = RollingTimePeriod.find params[:id]
     if @rolling_time_period.destroy
       expire_action :action => :rolling_time_period
@@ -172,7 +188,7 @@ class AssetClassController < ApplicationController
   def view_matrics_stats
     rolling_time_period = RollingTimePeriod.find(params[:id]) if params[:id]
     @rolling_stats = RollingPeriodMean.where(:rolling_time_period_id=>rolling_time_period)
-    @rolling_corelation = RollingPeriodCorrelation.where(:rolling_period_id => rolling_time_period.id)
+    @rolling_corelation = RollingPeriodCorrelation.where(:rolling_time_period_id => rolling_time_period.id)
     @asset_class_names=AssetClass.order(:id).collect(&:main_asset_class).sort
     @count = @asset_class_names.count
     respond_to do |format|

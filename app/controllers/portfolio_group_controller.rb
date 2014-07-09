@@ -35,22 +35,26 @@ class PortfolioGroupController < ApplicationController
     @portfolio_groups = PortfolioGroup.all
     if params[:id].present? then
       @portfolio_group = PortfolioGroup.find params[:id]
-    else
-      @portfolio_group = @portfolio_groups.first
-    end
-    @dataset = @portfolio_group.sorted_list_data
-    @dataset_object = @portfolio_group.sorted_list
+      efficient_frontier = @portfolio_group.efficient_frontier
+      if efficient_frontier.length == 0 then
+        flash[:error] = "No Efficient frontier exists for the current asset alloction"
+        redirect_to '/admin/investment/portfolio_group/efficient_frontier'
+        return
+      end
+      @dataset = @portfolio_group.sorted_list_data
+      @dataset_object = @portfolio_group.sorted_list
 
-    @name = AssetClass.all.map{|i| i.main_asset_class}
-    @h = LazyHighCharts::HighChart.new('graph') do |f|
-      f.options[:chart][:defaultSeriesType] = "line"
-      f.series(:name=> '', :data=>@dataset, :showInLegend => false)
-#f.series(series.showInLegend = false;)
-      f.options[:yAxis][:title] = {enabled:true,text:"Return"}
-      f.options[:xAxis][:title] = {enabled:true,text:"Risk"}
-      f.options[:tooltip][:formatter] = %|function() { return '<b>Risk:</b>' +  this.x + '<br>'+ '<b>Returns:</b>' + this.y;}|.js_code
-      f.options[:chart] = {:events => { :click => %|function(event) { alert('data'+event.xAxis[0].value); }|.js_code } }
-    end
+      @name = AssetClass.all.map{|i| i.main_asset_class}
+      @h = LazyHighCharts::HighChart.new('graph') do |f|
+        f.options[:chart][:defaultSeriesType] = "line"
+        f.series(:name=> '', :data=>@dataset, :showInLegend => false)
+  #f.series(series.showInLegend = false;)
+        f.options[:yAxis][:title] = {enabled:true,text:"Return"}
+        f.options[:xAxis][:title] = {enabled:true,text:"Risk"}
+        f.options[:tooltip][:formatter] = %|function() { return '<b>Risk:</b>' +  this.x + '<br>'+ '<b>Returns:</b>' + this.y;}|.js_code
+        f.options[:chart] = {:events => { :click => %|function(event) { alert('data'+event.xAxis[0].value); }|.js_code } }
+      end
+    end  
   end
 
   def periodic_risk

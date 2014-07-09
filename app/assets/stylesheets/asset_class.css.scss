@@ -4,7 +4,7 @@
 
 
 .asset_class_form{
-	margin-right: 500px;
+  margin-right: 500px;
   margin-bottom: 3%;
 }
 
@@ -32,45 +32,57 @@
 	list-style: none;
 	margin: 10px;
 }
-
-#asset-heading
+.asset-heading
 {
-	width: 25%;
+	width: 20%;
 	float: left;
 	font-weight: 200;
 	background-color: #ccc;
 }
-
+.asset-heading_action
+{
+	width: 40%;
+	float: left;
+	font-weight: 200;
+	background-color: #ccc;
+}
 #asset_class_content
 {
 	background-color: #fff;
 }
 
-#asset_content_values{
+.asset_content_values{
 	float: left;
-	width: 25%;
+	width: 20%;
 }
-
+.asset_content_values_action{
+	float: left;
+	width: 40%;
+}
 #asset_content_upload{
 	float: left;
-	width: 42%;
+	width: 17%;
+}
+#process_data_points {
+	float: left;
+	width: 43%
 }
 
 #asset_content_links{
 	float: right;
-	width: 58%;
+	width: 30%;
 }
 
 #set_asset_class{
 	float: left;
-	width: 49%;
+	width: 55%;
 	margin-right: 2px;
 	border: 1px solid black;
 }
 
 #asset_class_datas{
 	float: right;
-	width: 49%;
+	width: 43%;
 	margin-left: 2px;
 	border: 1px solid black;
 }

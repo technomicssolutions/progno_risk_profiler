@@ -1,5 +1,7 @@
+
 Progno::Application.configure do
 
+  
   # Settings specified here will take precedence over those in config/application.rb
 
   # In the development environment your application's code is reloaded on
@@ -37,7 +39,8 @@ Progno::Application.configure do
   config.assets.debug = true
   config.action_mailer.default_url_options = { :host => "http://198.24.151.205/" }
 
-  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.delivery_method = :smtp 
+ 
 
   config.action_mailer.smtp_settings = {
   address:              'smtp.gmail.com',
@@ -47,5 +50,7 @@ Progno::Application.configure do
   password:             'calicut121112',
   authentication:       'plain',
   enable_starttls_auto: true  }
+
+  config.log_level = :warn
 
 end

@@ -1,7 +1,7 @@
 class PortfolioGroup < ActiveRecord::Base
-  belongs_to :rolling_time_period , :dependent => :destroy
+  belongs_to :rolling_time_period
   has_many :portfolio_group_assets
-  has_many :efficient_frontier
+  has_many :efficient_frontier, :dependent => :destroy
   accepts_nested_attributes_for :portfolio_group_assets
 
   attr_accessible :name, :rolling_time_period_id, :time_horizon,
@@ -12,7 +12,6 @@ class PortfolioGroup < ActiveRecord::Base
   validates_presence_of :weight_change
   validates_presence_of :risk_free
   def asset_mix_generation
-
     asset = AssetClass.all
     name = Array.new
     asset_id = Array.new
@@ -49,7 +48,9 @@ class PortfolioGroup < ActiveRecord::Base
     name.each {
       excutable_string << "}\n"
     }
+    puts excutable_string
     eval(excutable_string)
+    puts eval(excutable_string)
   end
   def process_data(array_d,name,data,asset_id)
     array = array_d.map{ |i| (i * self.weight_change*0.01)}.reverse
@@ -70,7 +71,7 @@ class PortfolioGroup < ActiveRecord::Base
       deviation_1 = data["#{name[1]}_deviation"]
       weight = weight_risk[0]
       weight_1 = weight_risk[1]
-      corelation = RollingPeriodCorrelation.where(asset_class_item_one_id:matrix_order(name[0]),asset_class_item_two_id:matrix_order(name[1]),rolling_period_id:self.rolling_time_period_id).first.corelations.to_f
+      corelation = RollingPeriodCorrelation.where(asset_class_item_one_id:matrix_order(name[0]),asset_class_item_two_id:matrix_order(name[1]),rolling_time_period_id:self.rolling_time_period_id).first.corelations.to_f
       portfolio_risk = portfolio_risk + (2*weight*weight_1*deviation*deviation_1*corelation)
       name.rotate!
       weight_risk.rotate!
@@ -79,8 +80,10 @@ class PortfolioGroup < ActiveRecord::Base
     portfolio_risk = portfolio_risk ** (0.5)
 
     sharpe_ratio = (portfolio_return-self.risk_free)/portfolio_risk
-    @ef = self.efficient_frontier.build(composition:array_d.join(':'),:return=>portfolio_return.round(4),risk:portfolio_risk.round(4),sharpe_ratio:sharpe_ratio)
-    @ef.save
+    if portfolio_return > portfolio_risk then
+      @ef = self.efficient_frontier.build(composition:array_d.join(':'),:return=>portfolio_return.round(4),risk:portfolio_risk.round(4),sharpe_ratio:sharpe_ratio)
+      @ef.save
+    end
   end
 
   def matrix_order(name)
